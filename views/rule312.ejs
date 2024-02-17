@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% res.forEach( j => { %>
+        <h3><%= j.num %></h1>
+        <p><%= j.html %></p>
+        <p>Expected: <%= j.expected %></p> <p>Response: <%= j.response %></p>
+    <% }) %>
+</body>
+</html>
