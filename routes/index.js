@@ -36,11 +36,15 @@ router.get('/312', async function (req, res, next) {
                 + "5) Check if the lang attribute of the corresponding element (we will call it LANG_ELEM) and the lang attribute we got before (LANG_TEXT) represent the same language (example: fr and fr-CH represent the same language, French).\n"
                 + "6) If the answer is no, look if the parent or child nodes have a lang and see if it matches. Specify the node\n"
                 + "depending on the last two questions and their answers, say TRUE or FALSE\n" */
-      question = "Given this html:\n"
-      + html.data
-      + "\n 1) Extract all the text in the HTML \n"
-      + "2) Check the language of each extracted text \n"
-      + "3) Check whether the language of each text matches the language defined in its corresponding HTML node. Specify TRUE or FALSE "
+      question = "Given this html:"
+                  + html.data
+                  + "JUST ANSWER PASSED OR FAILED depending on the following:"
+                  +"1) Extract all the text in the HTML" 
+                  +"2) Detect the language of each extracted text (without looking the html)" 
+                  +"3) Then tell what value a lang attribute of an html element should have to match it (without looking the html), we will call this LANG_TEXT" 
+                  +"4) For each text find the corresponding HTML element"
+                  +"5) Check if the lang attribute of the corresponding element (we will call it LANG_ELEM) and the lang attribute we got before (LANG_TEXT) represent the same language (example: fr and fr-CH represent the same language, French)."
+                  +"JUST ANSWER PASSED OR FAILED depending on the aswers of the last questions"
       obj = {
         "html": html.data,
         "num": tc,
