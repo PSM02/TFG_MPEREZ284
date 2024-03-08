@@ -4,6 +4,15 @@ model = require("../src/llm");
 const testsJson312 = require('../test/312.json');
 const testsJson311 = require('../test/311.json');
 const axios = require('axios');
+const cheerio = require('cheerio');
+
+
+const fetchAndCleanHtml = async (url) => {
+  const { data: html } = await axios.get(url);
+  const $ = cheerio.load(html);
+  $('script').remove();
+  return $.html();
+};
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -25,28 +34,23 @@ router.get('/312', async function (req, res, next) {
     p = []
     for (tc in testsJson312.testcases) {
       url = testsJson312.testcases[tc].url
-      const html = await axios.get(url)
-      /* question = "Given this html:\n"
-                + html.data
-                + "\nDo the following:\n"
-                + "1) Extract all the text in the HTML\n"
-                + "2) Detect the language of each extracted text (without looking the html), specify the language."
-                + "3) Then tell what value a lang attribute of an html element should have to match it (without looking the html), we will call this LANG_TEXT\n"
-                + "4) Fro each text find the corresponding HTML element. Specify the corresponding element"
-                + "5) Check if the lang attribute of the corresponding element (we will call it LANG_ELEM) and the lang attribute we got before (LANG_TEXT) represent the same language (example: fr and fr-CH represent the same language, French).\n"
-                + "6) If the answer is no, look if the parent or child nodes have a lang and see if it matches. Specify the node\n"
-                + "depending on the last two questions and their answers, say TRUE or FALSE\n" */
-      question = "Given this html:"
-                  + html.data
-                  + "JUST ANSWER PASSED OR FAILED depending on the following:"
-                  +"1) Extract all the text in the HTML" 
-                  +"2) Detect the language of each extracted text (without looking the html)" 
-                  +"3) Then tell what value a lang attribute of an html element should have to match it (without looking the html), we will call this LANG_TEXT" 
-                  +"4) For each text find the corresponding HTML element"
-                  +"5) Check if the lang attribute of the corresponding element (we will call it LANG_ELEM) and the lang attribute we got before (LANG_TEXT) represent the same language (example: fr and fr-CH represent the same language, French)."
-                  +"JUST ANSWER PASSED OR FAILED depending on the aswers of the last questions"
+      const html = await fetchAndCleanHtml(url);
+      question = "Given this html:\n"
+                  + html
+                  + "<WHAT TO DO>\n"
+                  +"1) Extract all the text in the HTML\n" 
+                  +"2) Detect the language of the extracted text\n" 
+                  +"3) Check if the language represented by the lang attribute (example: en/English, fr/French, etc.) of the corresponding element matches the language of the text. Specify the element\n"
+                  +"<WHAT TO DO>\n"
+                  +"<EXAMPLES>\n"
+                  +'FAILED: <html lang="es"><body><article lang="english"><p aria-hidden="true">They wandered into a strange Tiki bar on the edge of the small beach town.</p></article></body></html>, reason: The lang attribute value does not have a valid language tag. Even though the p element is not included in the accessibility tree due to the presence of the aria-hidden="true" attribute, it is visible; therefore its content is text inheriting its programmatic language from the article element. Hence, the lang attribute must be valid.\n'
+                  +'PASSED: <html lang="es"><body><div lang="EN"><img src="/test-assets/shared/fireworks.jpg" alt="Fireworks over Paris" /></div></body></html>, reason: This div element has a valid lang attribute value. The accessible name of the image is text inheriting its programmatic language from the div element\n'
+                  +'PASSED: <html lang="fr"><body><p lang="en-US-GB">They wandered into a strange Tiki bar on the edge of the small beach town.</p></body></html>, reason: This p element has a lang attribute value which has a known primary language tag, but a syntactically invalid region subtag which is ignored by the rule.'
+                  +'PASSED: <html lang="es"><body><article lang="en">They wandered into a strange Tiki bar on the edge of the small beach town.</article></body></html>, reason: This article element has a lang attribute value which has a known primary language tag.'
+                  +"<EXAMPLES>\n"
+
       obj = {
-        "html": html.data,
+        "html": html,
         "num": tc,
         "expected": testsJson312.testcases[tc].expected,
         "response": await model.invoke(question)
@@ -54,19 +58,7 @@ router.get('/312', async function (req, res, next) {
       p[tc] = obj
       console.log(tc)
     }
-    res.render('rule312', { res : p });
-/*  const html = await axios.get("https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/a746b387d13dc61266d1fcde19b91b89441b1be7.html")
-    question = "Given this html:\n"
-                + html.data
-                + "\nDo the following:\n"
-                + "1. Extract all the texts from the following HTML and tell me in what language they are in\n"
-                + "2. See if the language maches the lang element of their parent HTML nodes, ANSWER TRUE OR FALSE ONLY\n"
-    obj = {
-      "html": html.data,
-      "expected": testsJson312.testcases[0].expected,
-      "response": await model.invoke(question)
-    }
-    res.send(obj); */
+    res.render('rule312', { res : p })
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
