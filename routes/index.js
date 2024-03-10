@@ -35,19 +35,29 @@ router.get('/312', async function (req, res, next) {
     for (tc in testsJson312.testcases) {
       url = testsJson312.testcases[tc].url
       const html = await fetchAndCleanHtml(url);
-      question = "Given this html:\n"
-                  + html
-                  + "<WHAT TO DO>\n"
+      question =  + "<WHAT TO DO>\n"
                   +"1) Extract all the text in the HTML\n" 
                   +"2) Detect the language of the extracted text\n" 
                   +"3) Check if the language represented by the lang attribute (example: en/English, fr/French, etc.) of the corresponding element matches the language of the text. Specify the element\n"
-                  +"<WHAT TO DO>\n"
+                  +"</WHAT TO DO>\n"
                   +"<EXAMPLES>\n"
-                  +'FAILED: <html lang="es"><body><article lang="english"><p aria-hidden="true">They wandered into a strange Tiki bar on the edge of the small beach town.</p></article></body></html>, reason: The lang attribute value does not have a valid language tag. Even though the p element is not included in the accessibility tree due to the presence of the aria-hidden="true" attribute, it is visible; therefore its content is text inheriting its programmatic language from the article element. Hence, the lang attribute must be valid.\n'
-                  +'PASSED: <html lang="es"><body><div lang="EN"><img src="/test-assets/shared/fireworks.jpg" alt="Fireworks over Paris" /></div></body></html>, reason: This div element has a valid lang attribute value. The accessible name of the image is text inheriting its programmatic language from the div element\n'
-                  +'PASSED: <html lang="fr"><body><p lang="en-US-GB">They wandered into a strange Tiki bar on the edge of the small beach town.</p></body></html>, reason: This p element has a lang attribute value which has a known primary language tag, but a syntactically invalid region subtag which is ignored by the rule.'
-                  +'PASSED: <html lang="es"><body><article lang="en">They wandered into a strange Tiki bar on the edge of the small beach town.</article></body></html>, reason: This article element has a lang attribute value which has a known primary language tag.'
+                  +'<EXAMPLE_1>\n'
+                  +'HTML: <html lang="es"><body><article lang="english"><p aria-hidden="true">They wandered into a strange Tiki bar on the edge of the small beach town.</p></article></body></html>\n'
+                  +'Extracted text: They wandered into a strange Tiki bar on the edge of the small beach town.\n'
+                  +'Detected language: en\n'
+                  +'Element: article, lang: english\n'
+                  +'ANSWER: FAILED, not valid value for lang attribute\n'
+                  +'</EXAMPLE_1>\n'
+                  +'<EXAMPLE_2>\n'
+                  +'HTML: <html lang="fr"><body><p lang="en-US-GB">They wandered into a strange Tiki bar on the edge of the small beach town.</p></body></html>\n'
+                  +'Extracted text: They wandered into a strange Tiki bar on the edge of the small beach town.\n'
+                  +'Detected language: en\n'
+                  +'Element: p, lang: en-US-GB\n'
+                  +'ANSWER: PASSED, valid lang value and maching languages\n'
+                  +'</EXAMPLE_2>\n'
                   +"<EXAMPLES>\n"
+                  +"Given this html, repeat what the examples do:\n"
+                  + html
 
       obj = {
         "html": html,
