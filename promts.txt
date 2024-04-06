@@ -11,3 +11,39 @@
                   +'PASSED: <html lang="fr"><body><p lang="en-US-GB">They wandered into a strange Tiki bar on the edge of the small beach town.</p></body></html>, reason: This p element has a lang attribute value which has a known primary language tag, but a syntactically invalid region subtag which is ignored by the rule.'
                   +'PASSED: <html lang="es"><body><article lang="en">They wandered into a strange Tiki bar on the edge of the small beach town.</article></body></html>, reason: This article element has a lang attribute value which has a known primary language tag.'
                   +"<EXAMPLES>\n"
+
+
+
++ "<WHAT TO DO>\n"
+                  +"1) Extract all the text in the HTML\n" 
+                  +"2) Detect the language of the extracted text\n" 
+                  +"3) Check if the language represented by the lang attribute (example: en/English, fr/French, etc.) of the corresponding element matches the language of the text. Specify the element\n"
+                  +"</WHAT TO DO>\n"
+                  +"<EXAMPLES>\n"
+                  +'<EXAMPLE_1>\n'
+                  +'HTML: <html lang="es"><body><article lang="english"><p aria-hidden="true">They wandered into a strange Tiki bar on the edge of the small beach town.</p></article></body></html>\n'
+                  +'Extracted text: They wandered into a strange Tiki bar on the edge of the small beach town.\n'
+                  +'Detected language: en\n'
+                  +'Element: article, lang: english\n'
+                  +'ANSWER: FAILED, not valid value for lang attribute\n'
+                  +'</EXAMPLE_1>\n'
+                  +'<EXAMPLE_2>\n'
+                  +'HTML: <html lang="fr"><body><p lang="en-US-GB">They wandered into a strange Tiki bar on the edge of the small beach town.</p></body></html>\n'
+                  +'Extracted text: They wandered into a strange Tiki bar on the edge of the small beach town.\n'
+                  +'Detected language: en\n'
+                  +'Element: p, lang: en-US-GB\n'
+                  +'ANSWER: PASSED, valid lang value and maching languages\n'
+                  +'</EXAMPLE_2>\n'
+                  +"<EXAMPLES>\n"
+                  +"Given this html, repeat what the examples do:\n"
+                  + html
+
+
+obj = {
+        "html": html,
+        "num": tc,
+        "expected": testsJson312.testcases[tc].expected,
+        "response": await model.invoke(question)
+      }
+      p[tc] = obj
+      console.log(tc)
