@@ -1,0 +1,7271 @@
+{
+  "674b10": {
+    "test0": {
+      "time_applicable": "8811ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2632ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4376ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "5595ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2273ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1545ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "3742ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1756ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1155ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "5579ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3641ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3782ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "6757ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2994ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2928ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "11048ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3511ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2314ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2759ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1215ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1358ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "3368ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1192ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1531ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "1623ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "441ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "388ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "1098ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "670ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "579ms"
+      }
+    }
+  },
+  "6a7281": {
+    "test0": {
+      "time_applicable": "1070ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "347ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "350ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "716ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "304ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "392ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "713ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "297ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "359ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "651ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2766ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2501ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "5135ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2846ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2589ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "5216ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2538ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2541ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "5805ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2789ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2520ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "5375ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3085ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2539ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "5307ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2495ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2784ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "5761ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2936ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3835ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "3450ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2925ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3812ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "5433ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2358ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3326ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "4911ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3865ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3815ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "4470ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3525ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2089ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "4677ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3091ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2492ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "4089ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3129ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4436ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "4624ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2458ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2673ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "3484ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2611ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1898ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "6448ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3014ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3084ms"
+      }
+    },
+    "test19": {
+      "time_applicable": "7045ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1542ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3053ms"
+      }
+    },
+    "test20": {
+      "time_applicable": "6324ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2173ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2179ms"
+      }
+    }
+  },
+  "5f99a7": {
+    "test0": {
+      "time_applicable": "5232ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3390ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2874ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "6654ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4770ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2189ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "3901ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1024ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1738ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "5793ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2498ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2621ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "5403ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2495ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2521ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "5260ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2541ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2565ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "5445ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2515ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2502ms"
+      }
+    }
+  },
+  "de46e4": {
+    "test0": {
+      "time_applicable": "2734ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2635ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2704ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2611ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2541ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2523ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2868ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2764ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2540ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2556ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2532ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2531ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2566ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2521ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2589ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2868ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2553ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2507ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2520ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2522ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2554ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2489ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2554ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2608ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2505ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2640ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2554ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2602ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2605ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2568ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2670ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2517ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2526ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2504ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "2575ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2544ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "2529ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2544ms"
+      }
+    }
+  },
+  "m6b1q3": {
+    "test0": {
+      "time_applicable": "2526ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2581ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2534ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2517ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2534ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3077ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2532ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2608ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2540ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2523ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2567ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2528ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2637ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2535ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2561ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2532ms"
+      }
+    }
+  },
+  "akn7bn": {
+    "test0": {
+      "time_applicable": "2561ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2922ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2559ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2511ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2535ms",
+      "wcag20:2.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2528ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2500ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2629ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2522ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2706ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2610ms",
+      "wcag20:2.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2497ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2541ms",
+      "wcag20:2.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2485ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2543ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2560ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2580ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3217ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "1571ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3076ms"
+      }
+    }
+  },
+  "97a4e1": {
+    "test0": {
+      "time_applicable": "2526ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2587ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2685ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2663ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2611ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2835ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2540ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2544ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2579ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2588ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2514ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2588ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2567ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2533ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2558ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2534ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2499ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2511ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2520ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2529ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2590ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2631ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2539ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2547ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2536ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2620ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2581ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3216ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "1654ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2512ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2564ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2582ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2507ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2529ms"
+      }
+    }
+  },
+  "e086e5": {
+    "test0": {
+      "time_applicable": "2669ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2779ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2563ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3041ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2529ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2531ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2506ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2977ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2660ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3167ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2804ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2710ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2854ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2825ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "3235ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2654ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2641ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2736ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2523ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2505ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2536ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2526ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2802ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2534ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2496ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2507ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2533ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2543ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2640ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2536ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2524ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2576ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2581ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2554ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "2627ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2556ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "2616ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2478ms"
+      }
+    },
+    "test19": {
+      "time_applicable": "2684ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2545ms"
+      }
+    }
+  },
+  "bf051a": {
+    "test0": {
+      "time_applicable": "2511ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2725ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2561ms",
+      "wcag20:3.1.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2501ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2535ms",
+      "wcag20:3.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2534ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2765ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2524ms"
+      }
+    },
+    "test4": {
+      "result": "inapplicable",
+      "expected": "failed",
+      "time_applicable": "2530ms",
+      "inaplicable_rule": "wcag20:3.1.1"
+    },
+    "test5": {
+      "result": "inapplicable",
+      "expected": "failed",
+      "time_applicable": "2603ms",
+      "inaplicable_rule": "wcag20:3.1.1"
+    },
+    "test6": {
+      "time_applicable": "2568ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2554ms"
+      }
+    }
+  },
+  "2779a5": {
+    "test0": {
+      "time_applicable": "2534ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2498ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2833ms",
+      "wcag20:2.4.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2691ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2770ms",
+      "wcag20:2.4.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2706ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2620ms",
+      "wcag20:2.4.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2555ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2517ms",
+      "wcag20:2.4.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2824ms"
+      }
+    },
+    "test5": {
+      "result": "inapplicable",
+      "expected": "failed",
+      "time_applicable": "3064ms",
+      "inaplicable_rule": "wcag20:2.4.2"
+    },
+    "test6": {
+      "time_applicable": "2536ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2518ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2509ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3228ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "1520ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2556ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2501ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2545ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2666ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2553ms"
+      }
+    }
+  },
+  "59796f": {
+    "test0": {
+      "time_applicable": "5396ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2561ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3221ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "5931ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2709ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2546ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "5194ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2525ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2522ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "5865ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1577ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2591ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "6549ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1982ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2827ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "5460ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3035ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2730ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "5380ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2541ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3003ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "5814ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2197ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3981ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "6205ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3126ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2703ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "5405ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1595ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2695ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "6005ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3155ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3443ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "4950ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2976ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2747ms"
+      }
+    }
+  },
+  "23a2a8": {
+    "test0": {
+      "time_applicable": "2539ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2450ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "3145ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3543ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "3091ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1538ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3982ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2235ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "4035ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3889ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3024ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4642ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3262ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2348ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "3146ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4421ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "3559ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3565ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "4032ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4556ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "4858ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3159ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2238ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1138ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "1028ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1361ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "1090ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "884ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "906ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1041ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2912ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1967ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2512ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2564ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "2508ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2507ms"
+      }
+    }
+  },
+  "c487ae": {
+    "test0": {
+      "time_applicable": "5447ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2540ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2570ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "5549ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2795ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2984ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "5948ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2011ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3370ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "7045ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2001ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2875ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "5953ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2587ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2794ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "5659ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3350ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3652ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "4924ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3058ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2463ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "4519ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2593ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2698ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "6349ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "1926ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2843ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "4640ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3025ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2459ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "5491ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "1893ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3162ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "5919ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3145ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2559ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "6839ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2279ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4555ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "8328ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3098ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2096ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "3379ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3307ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2761ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "5245ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1890ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2602ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "7180ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "5233ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3909ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "6934ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2089ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3254ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "4569ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1820ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3925ms"
+      }
+    },
+    "test19": {
+      "time_applicable": "3979ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1845ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2727ms"
+      }
+    },
+    "test20": {
+      "time_applicable": "5311ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2509ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2525ms"
+      }
+    },
+    "test21": {
+      "time_applicable": "5152ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2526ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2519ms"
+      }
+    },
+    "test22": {
+      "time_applicable": "5148ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2498ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2584ms"
+      }
+    },
+    "test23": {
+      "time_applicable": "5753ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2617ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2581ms"
+      }
+    },
+    "test24": {
+      "time_applicable": "5485ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2570ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2570ms"
+      }
+    },
+    "test25": {
+      "time_applicable": "5112ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2637ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2622ms"
+      }
+    },
+    "test26": {
+      "time_applicable": "5070ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2563ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2566ms"
+      }
+    },
+    "test27": {
+      "time_applicable": "5176ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2834ms"
+      },
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2548ms"
+      }
+    }
+  },
+  "7d6734": {
+    "test0": {
+      "time_applicable": "2693ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2528ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2547ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2770ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "3011ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2785ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2842ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2830ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2592ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2619ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2637ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2528ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2969ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2538ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2571ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2528ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2630ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2568ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2495ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2590ms"
+      }
+    }
+  },
+  "307n5z": {
+    "test0": {
+      "time_applicable": "2522ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2614ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2536ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2522ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2588ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2516ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2615ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2816ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2954ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2656ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3278ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2259ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2583ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1638ms"
+      }
+    }
+  },
+  "a25f45": {
+    "test0": {
+      "time_applicable": "3549ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3009ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "3506ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "1951ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2241ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3900ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3960ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2372ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2979ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2627ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3093ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2844ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3613ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4187ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "4980ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4841ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "4486ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4330ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "3603ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3393ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "3108ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2353ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2035ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "1179ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "1939ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1362ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "1181ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1278ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2386ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1008ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2935ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3340ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "950ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "4645ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "1968ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "4021ms"
+      }
+    }
+  },
+  "6cfa84": {
+    "test0": {
+      "time_applicable": "2484ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2154ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2198ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2921ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "3489ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "4212ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "4172ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4552ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2416ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3298ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2735ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2362ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2158ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2490ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "1648ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "883ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "484ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "982ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "3347ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1790ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2542ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2564ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2813ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2714ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "3116ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2600ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2671ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2591ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2543ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2523ms"
+      }
+    }
+  },
+  "bc659a": {
+    "test0": {
+      "time_applicable": "2511ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2535ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2557ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2494ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2565ms",
+      "wcag20:2.2.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2695ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2661ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2501ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2519ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2577ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3464ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1510ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2520ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2458ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2514ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2582ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2629ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2519ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2647ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2523ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2510ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2522ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2561ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2547ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2865ms",
+      "wcag20:2.2.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2554ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2524ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2666ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2534ms",
+      "wcag20:2.2.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2546ms"
+      }
+    }
+  },
+  "b4f0c3": {
+    "test0": {
+      "result": "inapplicable",
+      "expected": "passed",
+      "time_applicable": "2523ms",
+      "inaplicable_rule": "wcag20:1.4.4"
+    },
+    "test1": {
+      "time_applicable": "2547ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2548ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2542ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2538ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2517ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2494ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2534ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2656ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2758ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2545ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2566ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2611ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2573ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2554ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2500ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2626ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2505ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2515ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "3070ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2478ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2555ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2523ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2535ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2509ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2595ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2715ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2508ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2694ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2518ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2527ms"
+      }
+    }
+  },
+  "8fc3b6": {
+    "test0": {
+      "time_applicable": "2562ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2517ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2617ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2509ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2539ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2532ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2540ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2531ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2519ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2560ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2517ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3032ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2526ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2560ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2647ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2599ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2499ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2530ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2540ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2503ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2533ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2538ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2529ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2888ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "3559ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1529ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2707ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2557ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2539ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2520ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2545ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2672ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2940ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2551ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "2564ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2571ms"
+      }
+    }
+  },
+  "b5c3f8": {
+    "test0": {
+      "time_applicable": "2483ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2523ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2548ms",
+      "wcag20:3.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2513ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2820ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2577ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2655ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2501ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2516ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2792ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2680ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2723ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2544ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2522ms"
+      }
+    }
+  },
+  "c4a8a4": {
+    "test0": {
+      "time_applicable": "2529ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2515ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2916ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2762ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2845ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2540ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2629ms",
+      "wcag20:2.4.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2750ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "3005ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3206ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3516ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2536ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2607ms",
+      "wcag20:2.4.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3136ms"
+      }
+    }
+  },
+  "qt1vmo": {
+    "test0": {
+      "time_applicable": "2853ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2805ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2178ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3358ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "3033ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3783ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2659ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3223ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "4467ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "5535ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "4796ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4122ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3579ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2894ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "3086ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3506ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2262ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2101ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2225ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3289ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "5134ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "5151ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "4671ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "5056ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "4765ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3547ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "3751ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3448ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "3309ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2663ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2978ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3120ms"
+      }
+    }
+  },
+  "0ssw9k": {
+    "test0": {
+      "time_applicable": "3720ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4289ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "4520ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2292ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "4249ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3475ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3788ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3390ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2170ms",
+      "wcag20:2.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3048ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2135ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1643ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "1685ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1805ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "1643ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "609ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "1534ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "740ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "919ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "458ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "434ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "406ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "945ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "690ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2987ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2647ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2724ms",
+      "wcag20:2.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2552ms"
+      }
+    }
+  },
+  "oj04fd": {
+    "test0": {
+      "time_applicable": "2545ms",
+      "wcag20:2.4.7": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2650ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2538ms",
+      "wcag20:2.4.7": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2537ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2540ms",
+      "wcag20:2.4.7": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2571ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3037ms",
+      "wcag20:2.4.7": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2559ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2583ms",
+      "wcag20:2.4.7": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2541ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2559ms",
+      "wcag20:2.4.7": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2561ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2542ms",
+      "wcag20:2.4.7": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2508ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2569ms",
+      "wcag20:2.4.7": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2524ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2515ms",
+      "wcag20:2.4.7": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2518ms"
+      }
+    }
+  },
+  "afw4f7": {
+    "test0": {
+      "time_applicable": "2559ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2576ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2547ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3276ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "1537ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2602ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2572ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2503ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2514ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2584ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2558ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2569ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2536ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2539ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "3141ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2575ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2549ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2546ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2539ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2527ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2522ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2605ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2956ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2555ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2557ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2610ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2596ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2542ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2524ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2866ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2546ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2546ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2585ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2538ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "2565ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2742ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "2672ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2602ms"
+      }
+    },
+    "test19": {
+      "time_applicable": "2540ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2650ms"
+      }
+    },
+    "test20": {
+      "time_applicable": "3116ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2512ms"
+      }
+    },
+    "test21": {
+      "time_applicable": "2516ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2545ms"
+      }
+    },
+    "test22": {
+      "time_applicable": "2646ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2505ms"
+      }
+    },
+    "test23": {
+      "time_applicable": "2551ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2564ms"
+      }
+    },
+    "test24": {
+      "time_applicable": "2554ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2743ms"
+      }
+    },
+    "test25": {
+      "time_applicable": "2549ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2565ms"
+      }
+    },
+    "test26": {
+      "time_applicable": "2560ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2549ms"
+      }
+    },
+    "test27": {
+      "time_applicable": "2767ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2561ms"
+      }
+    },
+    "test28": {
+      "time_applicable": "2901ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3121ms"
+      }
+    },
+    "test29": {
+      "time_applicable": "2647ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2631ms"
+      }
+    },
+    "test30": {
+      "time_applicable": "2801ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2609ms"
+      }
+    },
+    "test31": {
+      "time_applicable": "2613ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2517ms"
+      }
+    },
+    "test32": {
+      "time_applicable": "2748ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2999ms"
+      }
+    }
+  },
+  "09o5cg": {
+    "test0": {
+      "time_applicable": "2684ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2571ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2519ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2842ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2530ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2596ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2583ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2720ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "3190ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3324ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3722ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "1023ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2672ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2295ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2776ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2521ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "4009ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "1891ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "3272ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "1326ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2612ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2379ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "1689ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "4302ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "1652ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4029ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "4362ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3436ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "3416ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1500ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2589ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "999ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "3154ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2499ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "2389ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3169ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "4797ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3848ms"
+      }
+    },
+    "test19": {
+      "time_applicable": "3892ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4498ms"
+      }
+    },
+    "test20": {
+      "time_applicable": "5178ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "4783ms"
+      }
+    },
+    "test21": {
+      "time_applicable": "5437ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "8355ms"
+      }
+    },
+    "test22": {
+      "time_applicable": "3558ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2523ms"
+      }
+    },
+    "test23": {
+      "time_applicable": "2063ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "757ms"
+      }
+    },
+    "test24": {
+      "time_applicable": "1440ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "859ms"
+      }
+    },
+    "test25": {
+      "time_applicable": "1667ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1734ms"
+      }
+    },
+    "test26": {
+      "time_applicable": "555ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "994ms"
+      }
+    },
+    "test27": {
+      "time_applicable": "1380ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2230ms"
+      }
+    },
+    "test28": {
+      "time_applicable": "1952ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2659ms"
+      }
+    },
+    "test29": {
+      "time_applicable": "2701ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2532ms"
+      }
+    },
+    "test30": {
+      "time_applicable": "2531ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2827ms"
+      }
+    },
+    "test31": {
+      "time_applicable": "2546ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2558ms"
+      }
+    },
+    "test32": {
+      "time_applicable": "2576ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2599ms"
+      }
+    },
+    "test33": {
+      "time_applicable": "2634ms",
+      "wcag20:1.4.3": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2567ms"
+      }
+    },
+    "test34": {
+      "time_applicable": "2715ms",
+      "wcag20:1.4.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2571ms"
+      }
+    }
+  },
+  "0va7u6": {
+    "test0": {
+      "time_applicable": "2678ms",
+      "wcag20:1.4.5": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2556ms"
+      }
+    },
+    "test1": {
+      "result": "inapplicable",
+      "expected": "passed",
+      "time_applicable": "2789ms",
+      "inaplicable_rule": "wcag20:1.4.5"
+    },
+    "test2": {
+      "time_applicable": "2685ms",
+      "wcag20:1.4.5": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2547ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2944ms",
+      "wcag20:1.4.5": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2915ms"
+      }
+    },
+    "test4": {
+      "result": "inapplicable",
+      "expected": "passed",
+      "time_applicable": "2547ms",
+      "inaplicable_rule": "wcag20:1.4.5"
+    },
+    "test5": {
+      "time_applicable": "2538ms",
+      "wcag20:1.4.5": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2505ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2584ms",
+      "wcag20:1.4.5": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2784ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2523ms",
+      "wcag20:1.4.5": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2554ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2523ms",
+      "wcag20:1.4.5": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2592ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2524ms",
+      "wcag20:1.4.5": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2533ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2515ms",
+      "wcag20:1.4.5": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2537ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2652ms",
+      "wcag20:1.4.5": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2933ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2679ms",
+      "wcag20:1.4.5": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2978ms"
+      }
+    },
+    "test13": {
+      "result": "inapplicable",
+      "expected": "inapplicable",
+      "time_applicable": "3055ms",
+      "inaplicable_rule": "wcag20:1.4.5"
+    },
+    "test14": {
+      "time_applicable": "2981ms",
+      "wcag20:1.4.5": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3114ms"
+      }
+    }
+  },
+  "bisz58": {
+    "test0": {
+      "time_applicable": "2866ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3735ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2472ms",
+      "wcag20:2.2.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2436ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2732ms",
+      "wcag20:2.2.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "4079ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3781ms",
+      "wcag20:2.2.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3770ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "3160ms",
+      "wcag20:2.2.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3362ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "1900ms",
+      "wcag20:2.2.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3269ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "1565ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "4279ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2296ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2227ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2651ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2308ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "1812ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2371ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2249ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2979ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "4004ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1956ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "3492ms",
+      "wcag20:2.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2799ms"
+      }
+    }
+  },
+  "ff89c9": {
+    "test0": {
+      "time_applicable": "2980ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3229ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "1996ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3922ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2799ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2074ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3308ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3610ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "4094ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "4990ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3316ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2971ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3489ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2932ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2198ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2337ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2376ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2430ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2460ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2936ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2582ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2003ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2828ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1471ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "1021ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2317ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "798ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2911ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2701ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2691ms"
+      }
+    }
+  },
+  "in6db8": {
+    "test0": {
+      "time_applicable": "5235ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2553ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2602ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "5176ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2498ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2585ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "5141ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2594ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2520ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "5551ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3043ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2579ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "6547ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2742ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3051ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "6281ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2440ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4198ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "7966ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "4756ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2747ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "4517ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1253ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1767ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "3251ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2923ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3545ms"
+      }
+    }
+  },
+  "bc4a75": {
+    "test0": {
+      "time_applicable": "2527ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4555ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2665ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1949ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "3628ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2629ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "1943ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3071ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "3627ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1959ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3916ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2514ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "4720ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2912ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2182ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3835ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "4406ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3910ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "5931ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "6338ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "4083ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "5141ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "5030ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "6176ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "5236ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3425ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2709ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2643ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2564ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3248ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2278ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "964ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2276ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1366ms"
+      }
+    }
+  },
+  "5c01ea": {
+    "test0": {
+      "time_applicable": "4568ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1515ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2095ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "3566ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "662ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "934ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "1823ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1180ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "446ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "5201ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2675ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2623ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "5216ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2575ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3143ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "5109ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2566ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3521ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "5093ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3073ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2913ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "5280ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2574ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2823ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "5679ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2841ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3179ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "5638ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2191ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3639ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "5851ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "856ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3661ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "6612ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2327ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1664ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "5874ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "930ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3556ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "5581ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4098ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1951ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "5516ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3329ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1638ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "5701ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2926ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "4032ms"
+      }
+    }
+  },
+  "80f0bf": {
+    "test0": {
+      "time_applicable": "4094ms",
+      "wcag20:1.4.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4693ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "5149ms",
+      "wcag20:1.4.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "6352ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "5199ms",
+      "wcag20:1.4.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "5556ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "5443ms",
+      "wcag20:1.4.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4119ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "5444ms",
+      "wcag20:1.4.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4099ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3153ms",
+      "wcag20:1.4.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2985ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3135ms",
+      "wcag20:1.4.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "5655ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "3067ms",
+      "wcag20:1.4.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3447ms"
+      }
+    }
+  },
+  "e7aa44": {
+    "test0": {
+      "time_applicable": "2253ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1614ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2402ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1251ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2280ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3161ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3453ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3354ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "3629ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3231ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "4785ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3789ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3295ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3311ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2374ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "853ms"
+      }
+    }
+  },
+  "efbfc7": {
+    "test0": {
+      "time_applicable": "1527ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1016ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "518ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "684ms"
+      }
+    },
+    "test2": {
+      "result": "inapplicable",
+      "expected": "passed",
+      "time_applicable": "466ms",
+      "inaplicable_rule": "wcag20:2.2.2"
+    },
+    "test3": {
+      "time_applicable": "627ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "519ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "530ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "355ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "915ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "720ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3038ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2577ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2780ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3081ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "3076ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2620ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2603ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2538ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2908ms",
+      "wcag20:2.2.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2513ms"
+      }
+    }
+  },
+  "cf77f2": {
+    "test0": {
+      "time_applicable": "2525ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2503ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2512ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2515ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2505ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2530ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2734ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2580ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2537ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2603ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2509ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2504ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2581ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2628ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2510ms",
+      "wcag20:2.4.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2535ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2601ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2646ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2549ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2532ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2510ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2545ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2764ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2591ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2551ms",
+      "wcag20:2.4.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2598ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2549ms",
+      "wcag20:2.4.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2553ms"
+      }
+    }
+  },
+  "off6ek": {
+    "test0": {
+      "time_applicable": "2504ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2541ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2559ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2543ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2530ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2992ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2971ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2532ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2503ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2533ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2551ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2531ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2523ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2536ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2655ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2568ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2754ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2516ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2610ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2538ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2520ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2515ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2496ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2492ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2496ms",
+      "wcag20:3.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2645ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2705ms",
+      "wcag20:3.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2594ms"
+      }
+    }
+  },
+  "80af7b": {
+    "test0": {
+      "time_applicable": "2555ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2523ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2601ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2553ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2612ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "65834ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2929ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2690ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "3191ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3754ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2808ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3208ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "4407ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3368ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "4311ms",
+      "wcag20:2.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3185ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "5269ms",
+      "wcag20:2.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "7826ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "5198ms",
+      "wcag20:2.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4072ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "3054ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3448ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "3190ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "4635ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "4352ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "5318ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "3981ms",
+      "wcag20:2.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3099ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2748ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3546ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2719ms",
+      "wcag20:2.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2260ms"
+      }
+    }
+  },
+  "cc0f0a": {
+    "test0": {
+      "time_applicable": "1395ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1705ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2996ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2663ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2164ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2161ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2125ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2354ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "691ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1389ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "464ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "669ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "1076ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1150ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "1303ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1253ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "1557ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "1130ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "484ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "382ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "750ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "466ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "1232ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "700ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "621ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1097ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "1084ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1785ms"
+      }
+    }
+  },
+  "b49b2e": {
+    "test0": {
+      "time_applicable": "2678ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2385ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2420ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2380ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "1821ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2699ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3823ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4515ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "4835ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "4881ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "4298ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3080ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "5792ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3156ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "6192ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "5771ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "5848ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "5032ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "4386ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "4975ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "5990ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2821ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "3558ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2286ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "998ms",
+      "wcag20:2.4.6": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2958ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "1828ms",
+      "wcag20:2.4.6": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3462ms"
+      }
+    }
+  },
+  "ucwvc8": {
+    "test0": {
+      "time_applicable": "3126ms",
+      "wcag20:3.1.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3489ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "3853ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4342ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "4092ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3928ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "4017ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3864ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "3780ms",
+      "wcag20:3.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3857ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3936ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1570ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "1558ms",
+      "wcag20:3.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2257ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2488ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1681ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "1693ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1395ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2059ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1664ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "1561ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2622ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "1589ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2351ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2619ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2615ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "1349ms",
+      "wcag20:3.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "1756ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "1185ms",
+      "wcag20:3.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1000ms"
+      }
+    }
+  },
+  "4b1c6c": {
+    "test0": {
+      "time_applicable": "1080ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1338ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "859ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1601ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "1206ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1154ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "503ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "418ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "661ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "352ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2530ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2952ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2912ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2677ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2755ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2870ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2512ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2524ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2580ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2574ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2650ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "64464ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2118ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "1615ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "1953ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2995ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "3804ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "4351ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2754ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3964ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "3552ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "4957ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "4581ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "5970ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "6832ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "6260ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "5972ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "5299ms"
+      }
+    },
+    "test19": {
+      "time_applicable": "6187ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "6840ms"
+      }
+    },
+    "test20": {
+      "time_applicable": "4852ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "5027ms"
+      }
+    },
+    "test21": {
+      "time_applicable": "4195ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "4001ms"
+      }
+    },
+    "test22": {
+      "time_applicable": "4431ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3564ms"
+      }
+    }
+  },
+  "cae760": {
+    "test0": {
+      "time_applicable": "5920ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3873ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "4987ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1719ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "1407ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "1628ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "861ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "359ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "811ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1105ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "669ms",
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "723ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "589ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "309ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "511ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "698ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "465ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "324ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "348ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "321ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "421ms",
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "436ms"
+      }
+    }
+  },
+  "e88epe": {
+    "test0": {
+      "time_applicable": "457ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "402ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "369ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "327ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "398ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "528ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "510ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "382ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "343ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "356ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "303ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2529ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3654ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1504ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2596ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2718ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2503ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2543ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "3346ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "1610ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2513ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2795ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2890ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2510ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2524ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2508ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2871ms",
+      "wcag20:1.1.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2587ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2716ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2567ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2535ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3164ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2633ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2503ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "2515ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2602ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "2569ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2669ms"
+      }
+    },
+    "test19": {
+      "time_applicable": "2812ms",
+      "wcag20:1.1.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2531ms"
+      }
+    }
+  },
+  "36b590": {
+    "test0": {
+      "time_applicable": "2519ms",
+      "wcag20:3.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2508ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2558ms",
+      "wcag20:3.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2519ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2484ms",
+      "wcag20:3.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3028ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2574ms",
+      "wcag20:3.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2549ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2542ms",
+      "wcag20:3.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2486ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3017ms",
+      "wcag20:3.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2504ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2497ms",
+      "wcag20:3.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2508ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2818ms",
+      "wcag20:3.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2488ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2554ms",
+      "wcag20:3.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2666ms"
+      }
+    }
+  },
+  "5effbb": {
+    "test0": {
+      "time_applicable": "2515ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2654ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2520ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2705ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2515ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2680ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2882ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2494ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2541ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2689ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2612ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2501ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3512ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2982ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2551ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2641ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "3191ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2504ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2652ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2525ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2640ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3480ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2229ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2719ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "3664ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1160ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "3410ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2337ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "3052ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2495ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "5198ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3532ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2694ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2340ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "3417ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3948ms"
+      }
+    }
+  },
+  "fd3a94": {
+    "test0": {
+      "time_applicable": "2665ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3485ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "4565ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4639ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "4427ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3781ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3211ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3504ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "3445ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3762ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3529ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2925ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "3372ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3881ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2929ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2383ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2583ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3437ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "4496ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3840ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "3709ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3555ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "3202ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3779ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "3360ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3247ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "3639ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2401ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2315ms",
+      "wcag20:2.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2170ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "1057ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1511ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "1854ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1613ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "1643ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1308ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "3631ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1568ms"
+      }
+    },
+    "test19": {
+      "time_applicable": "3238ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3170ms"
+      }
+    },
+    "test20": {
+      "time_applicable": "3232ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2251ms"
+      }
+    },
+    "test21": {
+      "time_applicable": "2681ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1935ms"
+      }
+    },
+    "test22": {
+      "time_applicable": "3425ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2903ms"
+      }
+    },
+    "test23": {
+      "time_applicable": "3221ms",
+      "wcag20:2.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1664ms"
+      }
+    }
+  },
+  "9bd38c": {
+    "test0": {
+      "time_applicable": "4156ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2258ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "3000ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2684ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "3427ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2937ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2331ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2212ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2316ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2304ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "3477ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1151ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2222ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3843ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2457ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2812ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2841ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2744ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2454ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1630ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2558ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2611ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2501ms",
+      "wcag20:1.3.3": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2495ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2620ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2613ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2907ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2570ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2671ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2542ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2630ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2577ms"
+      }
+    },
+    "test16": {
+      "time_applicable": "2536ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2517ms"
+      }
+    },
+    "test17": {
+      "time_applicable": "2731ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2705ms"
+      }
+    },
+    "test18": {
+      "time_applicable": "2538ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2847ms"
+      }
+    },
+    "test19": {
+      "time_applicable": "3098ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3288ms"
+      }
+    },
+    "test20": {
+      "time_applicable": "2088ms",
+      "wcag20:1.3.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2594ms"
+      }
+    }
+  },
+  "4e8ab6": {
+    "test0": {
+      "time_applicable": "5041ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2540ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2485ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "5041ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2508ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2515ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "5929ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3968ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3427ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "5795ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3227ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4251ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "6088ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "3071ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "4155ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "6023ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4419ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "4391ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "6352ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2015ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2728ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "5647ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3766ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2548ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "6651ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2569ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2140ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "7221ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "4256ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3023ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "3531ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2694ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3420ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "8046ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4645ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3127ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "4317ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2676ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3338ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "6205ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "4638ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "4098ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "9665ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "4717ms"
+      },
+      "wcag20:4.1.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3878ms"
+      }
+    }
+  },
+  "d0f69e": {
+    "test0": {
+      "time_applicable": "3310ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3737ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "1849ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2294ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2177ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1149ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "1647ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "2384ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2000ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "1590ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "477ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "passed",
+        "time_result": "492ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "476ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "581ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "360ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "324ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2724ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3244ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "2774ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2553ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2613ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2710ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2960ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2640ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2521ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2563ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2587ms",
+      "wcag20:1.3.1": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "2561ms"
+      }
+    },
+    "test14": {
+      "time_applicable": "2508ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2487ms"
+      }
+    },
+    "test15": {
+      "time_applicable": "2491ms",
+      "wcag20:1.3.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2758ms"
+      }
+    }
+  },
+  "eac66b": {
+    "test0": {
+      "time_applicable": "2496ms",
+      "wcag20:1.2.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2495ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2516ms",
+      "wcag20:1.2.2": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2513ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2520ms",
+      "wcag20:1.2.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2878ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3421ms",
+      "wcag20:1.2.2": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2637ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2644ms",
+      "wcag20:1.2.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2694ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2613ms",
+      "wcag20:1.2.2": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3445ms"
+      }
+    }
+  },
+  "c5a4ea": {
+    "test0": {
+      "time_applicable": "6110ms",
+      "wcag20:1.2.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3944ms"
+      },
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "5195ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "15888ms",
+      "wcag20:1.2.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "4147ms"
+      },
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3656ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "8270ms",
+      "wcag20:1.2.3": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3785ms"
+      },
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "1935ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "3989ms",
+      "wcag20:1.2.3": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2546ms"
+      },
+      "wcag20:1.2.5": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2035ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "5000ms",
+      "wcag20:1.2.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1841ms"
+      },
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2224ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "5896ms",
+      "wcag20:1.2.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "4093ms"
+      },
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3620ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "6430ms",
+      "wcag20:1.2.3": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2697ms"
+      },
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2694ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "4764ms",
+      "wcag20:1.2.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1742ms"
+      },
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1743ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "3335ms",
+      "wcag20:1.2.3": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2411ms"
+      },
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2809ms"
+      }
+    }
+  },
+  "f51b46": {
+    "test0": {
+      "time_applicable": "3280ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2504ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "3202ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2237ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2171ms",
+      "wcag20:1.2.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "1804ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "1306ms",
+      "wcag20:1.2.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "1815ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "3321ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2566ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2150ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3268ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2585ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2027ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2429ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2917ms"
+      }
+    }
+  },
+  "c3232f": {
+    "test0": {
+      "time_applicable": "3905ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3836ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2922ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3325ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2360ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "3475ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2566ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "1523ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "1549ms",
+      "wcag20:1.2.1": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2258ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "1879ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2979ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2864ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "3230ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "1963ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2512ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2519ms",
+      "wcag20:1.2.1": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2602ms"
+      }
+    }
+  },
+  "1ec09b": {
+    "test0": {
+      "time_applicable": "3160ms",
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2528ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "3135ms",
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2524ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2502ms",
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2490ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2582ms",
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2498ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2511ms",
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2506ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2619ms",
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2863ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2518ms",
+      "wcag20:1.2.5": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2626ms"
+      }
+    }
+  },
+  "59br37": {
+    "test0": {
+      "time_applicable": "2525ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2568ms"
+      }
+    },
+    "test1": {
+      "time_applicable": "2613ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2492ms"
+      }
+    },
+    "test2": {
+      "time_applicable": "2569ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2716ms"
+      }
+    },
+    "test3": {
+      "time_applicable": "2508ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "passed",
+        "time_result": "2666ms"
+      }
+    },
+    "test4": {
+      "time_applicable": "2541ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2988ms"
+      }
+    },
+    "test5": {
+      "time_applicable": "2619ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2920ms"
+      }
+    },
+    "test6": {
+      "time_applicable": "2751ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "failed",
+        "time_result": "2586ms"
+      }
+    },
+    "test7": {
+      "time_applicable": "2586ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "2497ms"
+      }
+    },
+    "test8": {
+      "time_applicable": "2688ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "failed",
+        "time_result": "3446ms"
+      }
+    },
+    "test9": {
+      "time_applicable": "1556ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2536ms"
+      }
+    },
+    "test10": {
+      "time_applicable": "2662ms",
+      "wcag20:1.4.4": {
+        "result": "failed",
+        "expected": "inapplicable",
+        "time_result": "3230ms"
+      }
+    },
+    "test11": {
+      "time_applicable": "2219ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "2061ms"
+      }
+    },
+    "test12": {
+      "time_applicable": "2869ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "3321ms"
+      }
+    },
+    "test13": {
+      "time_applicable": "2468ms",
+      "wcag20:1.4.4": {
+        "result": "passed",
+        "expected": "inapplicable",
+        "time_result": "1825ms"
+      }
+    }
+  }
+}
