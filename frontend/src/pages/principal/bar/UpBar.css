@@ -1,0 +1,12 @@
+.login-bar {
+  position: fixed; /* Stick to the top */
+  top: 0; /* Position at the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Stretch to full width */
+  z-index: 100; /* Ensure it stays on top of content */
+  padding: 1rem;
+  background-color: #f0f0f0;
+}
+.login-bar button {
+  margin-left: 1rem; /* Add margin between buttons */
+}

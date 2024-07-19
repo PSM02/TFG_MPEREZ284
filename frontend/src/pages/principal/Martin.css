@@ -1,10 +1,83 @@
-.Martin {
-  text-align: center;
-  padding: 20px;
+.App {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+  margin-top: 5rem;
+  background-image: "";
 }
 
-.Martin-header {
-  background-color: #282c34;
-  padding: 20px;
+.ButonBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+h1 {
+  color: #333; /* Dark blue text */
+  margin-bottom: 1rem;
+}
+
+.input-container,
+.button-container,
+.download-container,
+.changelog {
+  margin-bottom: 1rem;
+}
+
+/* Style the input area (assuming text areas) */
+.input-container textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px;
+  font-size: 16px;
+  min-height: 150px; /* Adjust as needed */
+}
+
+/* Style the buttons */
+button {
+  background-color: #2e8bfe; /* Light blue */
   color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2478d9; /* Darker blue on hover */
+}
+
+.changelog h2 {
+  color: #333; /* Dark blue text */
+  margin-bottom: 0.5rem;
+}
+
+.image-button {
+  background-color: transparent; /* Remove default button background */
+  border: none; /* Remove default button border */
+  padding: 0; /* Remove default button padding */
+  cursor: pointer; /* Indicate clickable area */
+  color: #333;
+  /* Center the text within the button */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* font */
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.image-button img {
+  /* Style the image to fit within the button */
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
 }

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import UrlInput from "../UrlInput/UrlInput";
 import "../FormStile.css";
 
 function Register() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -13,14 +11,26 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here you would typically send the user data to your backend service
-    console.log(`Registering user: ${username}`);
-    setIsSubmitted(true);
+    let jsonData = {
+      username: username,
+      email: email,
+      password: password,
+      date_of_birth: dob,
+      name: name,
+      surname: surname,
+    };
+    fetch("http://localhost:3000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jsonData),
+    }).then((response) => {
+      response.json().then((data) => {
+        alert(data.message);
+      });
+    });
   };
-
-  if (isSubmitted) {
-    return <UrlInput />;
-  }
 
   return (
     <div className="FormStile">
