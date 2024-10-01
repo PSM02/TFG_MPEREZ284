@@ -5,10 +5,10 @@ const server = express();
 server.use(cors()); // Enable CORS
 
 // Parse JSON bodies (as sent by API clients)
-server.use(express.json());
+server.use(express.json({ limit: "50mb" }));
 
 // Parse URL-encoded bodies (as sent by HTML forms)
-server.use(express.urlencoded({ extended: true }));
+server.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
 const registerRoute = require("./routes/register");
 const loginRoute = require("./routes/login");

@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("../methods/mongodb");
 const router = express.Router();
 
-const resultFromJson = require("../methods/resultFromJson");
+const jsonTesting = require("../methods/resultFromJson");
 const testWegPage = require("../methods/testWegPage");
 
 // Priority queue array
@@ -103,12 +103,20 @@ async function changeState(code, state) {
   });
 }
 
+async function putOnContinue(code) {
+  await changeState(code, "waitingContinue");
+}
+
 async function putOnRepeat(code) {
   await changeState(code, "waitingRepeat");
 }
 
 async function startRepeating(code) {
   await changeState(code, "repeating");
+}
+
+async function continueTest(code) {
+  await changeState(code, "continuing");
 }
 
 async function processQueue() {
@@ -123,6 +131,7 @@ async function processQueue() {
       code,
       testType,
       repeating,
+      continuing,
       infProv,
       resolve,
       reject,
@@ -137,6 +146,7 @@ async function processQueue() {
         code,
         testType,
         repeating,
+        continuing,
         infProv
       );
       resolve(result); // Resolve the promise with the result
@@ -169,37 +179,48 @@ async function startTest(code) {
   });
 }
 
-async function jsonTest(json, model, infProv) {
+async function jsonTest(json, model, infProv, continuing) {
   results = {};
-  //res = await resultFromJson("Desc", json, model);
   info = "";
   if (infProv.includes("All")) {
     try {
-      [results_wD, final_test_wD] = await resultFromJson("Desc", json, model);
+      [results_wD, final_test_wD] = await jsonTesting.resultFromJson(
+        "Desc",
+        json,
+        model
+      );
       results["wD"] = results_wD;
-      [results_wU, final_test_wU] = await resultFromJson("Undr", json, model);
+      [results_wU, final_test_wU] = await jsonTesting.resultFromJson(
+        "Undr",
+        json,
+        model
+      );
       results["wU"] = results_wU;
-      [results_wT, final_test_wT] = await resultFromJson("Tech", json, model);
+      [results_wT, final_test_wT] = await jsonTesting.resultFromJson(
+        "Tech",
+        json,
+        model
+      );
       results["wT"] = results_wT;
-      [results_wDU, final_test_wDU] = await resultFromJson(
+      [results_wDU, final_test_wDU] = await jsonTesting.resultFromJson(
         "DescUndr",
         json,
         model
       );
       results["wDU"] = results_wDU;
-      [results_wDT, final_test_wDT] = await resultFromJson(
+      [results_wDT, final_test_wDT] = await jsonTesting.resultFromJson(
         "DescTech",
         json,
         model
       );
       results["wDT"] = results_wDT;
-      [results_wUT, final_test_UT] = await resultFromJson(
+      [results_wUT, final_test_UT] = await jsonTesting.resultFromJson(
         "UndrTech",
         json,
         model
       );
       results["wUT"] = results_wUT;
-      [results_wDUT, final_test_wDUT] = await resultFromJson(
+      [results_wDUT, final_test_wDUT] = await jsonTesting.resultFromJson(
         "DescUndrTech",
         json,
         model
@@ -217,8 +238,21 @@ async function jsonTest(json, model, infProv) {
     if (infProv.includes("Techniques")) {
       info += "Tech";
     }
-    [results, _] = await resultFromJson(info, json, model);
-    return results;
+
+    if (continuing) {
+      // Get the test from the db
+      [results, lastTest] = await jsonTesting.continueResultFromJson(
+        info,
+        json,
+        model,
+        continuing.upToNowTest,
+        continuing.haltedTest
+      );
+      return [results, lastTest];
+    } else {
+      [results, lastTest] = await jsonTesting.resultFromJson(info, json, model);
+      return [results, lastTest];
+    }
   }
 }
 
@@ -264,6 +298,33 @@ async function finishTest(code, mongoTestResults) {
   });
 }
 
+async function haltTest(code, mongoTestResults, lastTest) {
+  await db.ResultJsons.find({ code: code }, function (err, doc) {
+    if (err) {
+      console.error(err);
+    } else {
+      const date = new Date();
+      const formattedDate = formatter.format(date);
+      db.ResultJsons.update(
+        { _id: doc[0]._id },
+        {
+          $set: {
+            test: mongoTestResults,
+            status: "halted",
+            date: formattedDate,
+            lastTest: lastTest,
+          },
+        },
+        function (err) {
+          if (err) {
+            console.error(err);
+          }
+        }
+      );
+    }
+  });
+}
+
 // Function to handle the test request
 async function handleTestRequest(
   user,
@@ -272,24 +333,44 @@ async function handleTestRequest(
   code,
   testType,
   repeating,
+  continuing,
   infProv
 ) {
-  if (user && !repeating) {
+  if (user && !repeating && !continuing) {
     await startTest(code);
-  } else {
+  } else if (user && repeating) {
     await startRepeating(repeating);
+  } else if (user && continuing) {
+    await continueTest(continuing.code);
   }
 
   if (testType === "json") {
-    results = await jsonTest(testSubject, model, infProv);
+    [results, lastTest] = await jsonTest(
+      testSubject,
+      model,
+      infProv,
+      continuing
+    );
   } else {
     results = await webTestAll(testSubject, model);
   }
 
-  if (user && !repeating) {
-    finishTest(code, JSON.stringify(results));
+  if (lastTest) {
+    if (user && !repeating && !continuing) {
+      await haltTest(code, results, la, lastTest);
+    } else if (user && repeating) {
+      await haltTest(repeating, results, lastTest);
+    } else if (user && continuing) {
+      await haltTest(continuing.code, results, lastTest);
+    }
   } else {
-    finishTest(repeating, JSON.stringify(results));
+    if (user && !repeating && !continuing) {
+      await finishTest(code, results);
+    } else if (user && repeating) {
+      await finishTest(repeating, results);
+    } else if (user && continuing) {
+      await finishTest(continuing.code, results);
+    }
   }
 
   return results;
@@ -302,15 +383,18 @@ router.post("/", async (req, res) => {
   testType = req.body.testType;
   priority = requestQueue.length;
   repeating = req.body.repeating;
+  continuing = req.body.continue;
   infProv = req.body.informationProvided;
 
   let code = null;
 
-  if (user && !repeating) {
+  if (user && !repeating && !continuing) {
     code = await getID(user);
     await addNewTest(user, code, testType, testSubject, model, infProv);
-  } else {
+  } else if (user && repeating) {
     await putOnRepeat(repeating);
+  } else if (user && continuing) {
+    await putOnContinue(continuing.code);
   }
 
   const result = await new Promise((resolve, reject) => {
@@ -322,6 +406,7 @@ router.post("/", async (req, res) => {
       code,
       testType,
       repeating,
+      continuing,
       infProv,
       priority: parseInt(priority),
       resolve,

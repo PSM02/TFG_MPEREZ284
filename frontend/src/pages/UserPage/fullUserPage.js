@@ -191,6 +191,32 @@ export default function UserPage() {
       });
   };
 
+  const continueTest = async (test, index) => {
+    fetch("http://localhost:3001/service/results/json/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: localStorage.getItem("user"),
+        testSubject: test.testSubject,
+        model: test.model,
+        testType: test.type,
+        all: test.all,
+        continue: {
+          code: test.code,
+          upToNowTest: test.test,
+          haltedTest: test.lastTest,
+        },
+        informationProvided: test.informationProvided,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        //console.log("Data:", data);
+      });
+  };
+
   const deleteTest = async (testId) => {
     setTests((tests) => tests.filter((test) => test.code !== testId));
 
@@ -325,6 +351,7 @@ export default function UserPage() {
                   {test.status === "waitingRepeat" && "waiting to be repeated"}
                   {test.status === "repeating" && "being repeated"}
                   {test.status === "repeating" && <div className="loader" />}
+                  {test.status === "halted" && "halted"}
                 </button>
                 {test.status === "finished" && (
                   <React.Fragment>
@@ -343,6 +370,26 @@ export default function UserPage() {
                       }}
                     >
                       delete
+                    </button>
+                  </React.Fragment>
+                )}
+                {test.status === "halted" && (
+                  <React.Fragment>
+                    <button
+                      className="testButton"
+                      onClick={(e) => {
+                        deleteTest(test.code);
+                      }}
+                    >
+                      delete
+                    </button>
+                    <button
+                      className="testButton"
+                      onClick={(e) => {
+                        continueTest(test);
+                      }}
+                    >
+                      continue
                     </button>
                   </React.Fragment>
                 )}

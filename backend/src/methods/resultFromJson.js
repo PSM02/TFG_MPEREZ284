@@ -26,27 +26,6 @@ informationProvided1 = (testType, info) => {
   return returnInfo;
 };
 
-informationProvided2 = (testType, info) => {
-  returnInfo = "";
-  if (testType.includes("Desc")) {
-    returnInfo =
-      "<RULE DESCRIPTION>\n" + info.ruleDesc + "</RULE DESCRIPTION>\n";
-  }
-  if (testType.includes("Undr")) {
-    returnInfo +=
-      "<RULE UNDERSTANDING>\n" +
-      present_understanding(info.ruleUnderstanding) +
-      "</RULE UNDERSTANDING>\n";
-  }
-  if (testType.includes("Tech")) {
-    returnInfo +=
-      "<RULE TECHNIQUES>\n" +
-      present_techniques(info.techniques) +
-      "</RULE TECHNIQUES>\n";
-  }
-  return returnInfo;
-};
-
 message1 = (testType, html, rule) => {
   const { techniques, ...understanding } = sc_info[rule].understanding;
   conversationChainAplicable =
@@ -257,14 +236,30 @@ resultFromJson2 = async (testType, testsJson, model) => {
 };
 
 resultFromJson = async (testType, testsJson, model) => {
+  return await doTest(testType, testsJson, model, {}, 1);
+};
+
+continueResultFromJson = async (
+  testType,
+  testsJson,
+  model,
+  results,
+  lastTest
+) => {
+  testcaseIDs = originalTests.testcases.map((tc) => tc.testcaseId);
+  let cont = testcaseIDs.indexOf(lastTest.split("_")[1]);
+  let final = results;
+
+  return await doTest(testType, testsJson, model, JSON.parse(final), cont);
+};
+
+doTest = async (testType, testsJson, model, final, cont) => {
   let chain = await LLM.initialize(model);
-  let final = {};
   testsJson = originalTests;
   let current_test = "";
   let allTests = testsJson.testcases.length;
-  let cont = 1;
 
-  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  //const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   while (cont <= allTests) {
     try {
@@ -335,9 +330,10 @@ resultFromJson = async (testType, testsJson, model) => {
       console.log(error);
       console.log("Waiting 10 minutes before retrying...");
 
-      // Wait for 10 minutes before retrying
+      /* // Wait for 10 minutes before retrying
       await wait(3 * 60 * 1000);
-      console.log("Retrying from test: " + current_test);
+      console.log("Retrying from test: " + current_test); */
+      return [final, current_test];
     }
   }
 
@@ -348,4 +344,7 @@ resultFromJson = async (testType, testsJson, model) => {
   return [final, undefined];
 };
 
-module.exports = resultFromJson;
+module.exports = {
+  resultFromJson,
+  continueResultFromJson,
+};
