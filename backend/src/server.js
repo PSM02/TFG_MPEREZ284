@@ -11,9 +11,11 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 const registerRoute = require("./routes/register");
+const loginRoute = require("./routes/login");
 const resultJson = require("./routes/resultsJson");
 
 server.use("/api/auth/register", registerRoute);
+server.use("/api/auth/login", loginRoute);
 server.use("/service/results/json", resultJson);
 
 server.use(function (req, res, next) {

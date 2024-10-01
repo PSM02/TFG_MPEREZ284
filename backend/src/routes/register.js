@@ -4,7 +4,7 @@ const db = require("../methods/mongodb");
 const router = express.Router();
 
 register = async (req, res) => {
-  db.users.insert({ ...req.body }, function (err, doc) {
+  db.users.insert({ ...req.body, testsPerformed: 0 }, function (err, doc) {
     if (err) {
       res.status(400).send({ message: err });
     } else {

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "../FormStile.css";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -19,7 +22,7 @@ function Register() {
       name: name,
       surname: surname,
     };
-    fetch("http://localhost:3000/api/auth/register", {
+    fetch("http://localhost:3001/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +30,9 @@ function Register() {
       body: JSON.stringify(jsonData),
     }).then((response) => {
       response.json().then((data) => {
+        localStorage.setItem("user", username);
         alert(data.message);
+        navigate("/");
       });
     });
   };

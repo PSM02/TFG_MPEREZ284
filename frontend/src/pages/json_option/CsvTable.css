@@ -1,27 +1,46 @@
-table {
+.csv-table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: auto;
+  margin-bottom: 20px;
+  position: relative;
 }
 
-th,
-td {
-  border: 1px solid #ddd; /* Light grey border */
-  text-align: left;
+.csv-table th,
+.csv-table td {
+  border: 1px solid #ddd;
   padding: 8px;
+  text-align: left;
 }
 
-th {
-  background-color: #f2f2f2; /* Light grey background for headers */
+.csv-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
 }
 
-tr:nth-child(even) {
-  background-color: #f9f9f9; /* Zebra striping for rows */
+.csv-table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-/* Ensure table does not overflow its container */
-table {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
+.csv-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.html_place {
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+  font-family: monospace; /* Use a monospace font to display HTML tags */
+  background-color: #f9f9f9; /* Optional: Add a background color for better readability */
+  padding: 8px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a border */
+  text-align: left; /* Align text to the left */
+}
+
+.tooltip {
+  position: fixed;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 1000;
+  pointer-events: none;
 }

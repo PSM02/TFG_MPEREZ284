@@ -1,0 +1,37 @@
+post(/) de resultsJson.js:
+
+router.post("/", async (req, res) => {
+  if (req.body.user) {
+    await storeStartedTest(req.body.user);
+  }
+  const result = await resultFromJson(
+    "testsWithNothing",
+    req.body.json,
+    req.body.model
+  );
+  if (req.body.user) {
+    db.ResultJsons.find({ status: "started" }, function (err, doc) {
+      if (err) {
+        console.error(err);
+      } else {
+        db.ResultJsons.update(
+          { _id: doc[0]._id },
+          { $set: { test: removeDots(result), status: "finished" } },
+          function (err, doc) {
+            if (err) {
+              console.error(err);
+            }
+          }
+        );
+      }
+    });
+  }
+  res.send(result);
+});
+
+
+backend:
+sha256:2161c37398bf18b7036cbe7b4a8c0d7b137889d38b59823cc440e2a33e5e4f4c
+
+frontend:
+sha256:b08b4e15b40af775c2d8c1a0d50d50a77d313784bfd17f6d8edc63c9a927f60d

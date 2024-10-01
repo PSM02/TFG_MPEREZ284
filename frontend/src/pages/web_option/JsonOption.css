@@ -1,0 +1,125 @@
+/* JsonUploadPage.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+h2 {
+  color: #333;
+}
+
+input[type="file"] {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}
+
+.json-display {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 80%;
+  max-width: 600px;
+  overflow-x: auto;
+}
+
+.json-display pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.JsonButton {
+  margin-top: 20px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgrey;
+  color: black;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.JsonButton:hover {
+  background-color: grey;
+  color: white;
+}
+
+.loader {
+  border: 10px solid lightgrey; /* Light grey */
+  border-top: 10px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.table-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto; /* Allows table to scroll horizontally on small screens */
+  /* the download link is on top of the table */
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-link {
+  margin-top: 20px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgrey;
+  color: black;
+  font-size: 12px;
+  cursor: pointer;
+  /* left of the screen */
+}
+
+.download-link:hover {
+  background-color: grey;
+  color: white;
+}
+
+.web-input {
+  margin-top: 20px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgrey;
+  color: black;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.testOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  /*separation between elements*/
+  gap: 5px;
+}
+
+.webTestGrid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  /*separation between elements*/
+  gap: 50px;
+}

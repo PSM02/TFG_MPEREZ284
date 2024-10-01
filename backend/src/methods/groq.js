@@ -3,23 +3,24 @@ require("dotenv").config({ path: "backend/env/.env" });
 const { ChatGroq } = require("@langchain/groq");
 const { ChatPromptTemplate } = require("@langchain/core/prompts");
 
-//GROQ LLM YOU WANT TO USE
-const llm = "llama3-70b-8192";
+setModelChain = async (m) => {
+  model = new ChatGroq({
+    apiKey: process.env.GROQ_API_KEY,
+    model: m,
+    temperature: 0.5,
+  });
 
-const model = new ChatGroq({
-  apiKey: process.env.GROQ_API_KEY,
-  model: llm,
-  temperature: 0.1,
-});
+  const prompt = ChatPromptTemplate.fromMessages([
+    ["system", "You are a helpful assistant"],
+    ["human", "{input}"],
+  ]);
 
-const prompt = ChatPromptTemplate.fromMessages([
-  ["system", "You are a helpful assistant"],
-  ["human", "{input}"],
-]);
+  const chain = await prompt.pipe(model);
 
-const chain = prompt.pipe(model);
+  return chain;
+};
 
-callLLM = async (input) => {
+callLLM = async (chain, input) => {
   const response = await chain.invoke({
     input,
   });
@@ -28,5 +29,5 @@ callLLM = async (input) => {
 
 module.exports = {
   callLLM,
-  llm,
+  setModelChain,
 };

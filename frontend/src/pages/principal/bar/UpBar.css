@@ -8,5 +8,22 @@
   background-color: #f0f0f0;
 }
 .login-bar button {
-  margin-left: 1rem; /* Add margin between buttons */
+  margin-left: 1rem;
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.login-bar button:hover {
+  background-color: darkblue;
+}
+
+.login-bar button.home-button {
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
 }

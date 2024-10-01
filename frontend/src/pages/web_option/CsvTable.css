@@ -1,0 +1,34 @@
+.csv-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.csv-table th,
+.csv-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.csv-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.csv-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.csv-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.html_place {
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+  font-family: monospace; /* Use a monospace font to display HTML tags */
+  background-color: #f9f9f9; /* Optional: Add a background color for better readability */
+  padding: 8px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a border */
+  text-align: left; /* Align text to the left */
+}

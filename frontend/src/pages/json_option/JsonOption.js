@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import "./JsonOption.css";
-import jsonToCSV from "../../table_chart_generation/toCSV";
+import jsonToCSV from "../../table_chart_generation/jsonTestToCSV";
 import Papa from "papaparse";
 import CsvDataTable from "./CsvTable";
+import DropDownList from "../accesories/DropDownList";
+import UpBar from "../principal/bar/UpBar";
+import LogedBar from "../principal/bar/LogedBar";
+
+const models = [
+  "llama3-70b-8192",
+  "mixtral-8x7b-32768",
+  "gemma-7b-it",
+  "whisper-large-v3",
+];
 
 function JsonUploadPage() {
   const [jsonData, setJsonData] = useState(null);
@@ -11,6 +21,13 @@ function JsonUploadPage() {
   const [isLoading, setIsLoading] = useState(false); // State to track loading status
   const [csvData, setCsvData] = useState(null);
   const [csvDataDownload, setcsvDataDownload] = useState(null);
+  const [selectedModel, setSelectedModel] = useState(null);
+  const loged = localStorage.getItem("user");
+
+  const handleSelect = (item) => {
+    setSelectedModel(item);
+    console.log("Selected item:", item);
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -35,12 +52,18 @@ function JsonUploadPage() {
   const testJson = async () => {
     setIsLoading(true); // Start loading
     // Send the JSON data to the server /service/results/json
-    fetch("http://localhost:3000/service/results/json", {
+    fetch("http://localhost:3001/service/results/json", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ json: jsonData }),
+      body: JSON.stringify({
+        testSubject: jsonData,
+        model: selectedModel,
+        user: localStorage.getItem("user"),
+        all: false,
+        testType: "json",
+      }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -50,7 +73,6 @@ function JsonUploadPage() {
         setcsvDataDownload(csv);
         Papa.parse(csv, {
           complete: (result) => {
-            setIsLoading(false);
             setCsvData(result.data);
           },
           header: true,
@@ -65,6 +87,7 @@ function JsonUploadPage() {
 
   return (
     <div className="container">
+      {loged ? <LogedBar /> : <UpBar />}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
       <h2>Upload a JSON File</h2>
       <input
@@ -72,11 +95,12 @@ function JsonUploadPage() {
         accept="application/json"
         onChange={handleFileChange}
       />
-      {isLoading && <div className="loader"></div>}
-      <button onClick={testJson}>Test JSON</button>
-      <button onClick={() => setShowJson(!showJson)}>
-        {!showJson && "Show JSON"}
-        {showJson && "Hide JSON"}
+      {isLoading && <div className="loader" />}
+      <button className="JsonButton" onClick={testJson}>
+        Test JSON
+      </button>
+      <button className="JsonButton" onClick={() => setShowJson(!showJson)}>
+        {!showJson ? "Show JSON" : "Hide JSON"}
       </button>
       {showJson && jsonData && (
         <div className="json-display">
@@ -84,7 +108,7 @@ function JsonUploadPage() {
         </div>
       )}
       {csvDataDownload && (
-        <div class="table-container">
+        <div className="table-container">
           <a
             className="download-link"
             href={`data:text/csv;charset=utf-8,${csvDataDownload}`}
@@ -95,6 +119,7 @@ function JsonUploadPage() {
           <CsvDataTable data={csvData} />
         </div>
       )}
+      <DropDownList onSelect={handleSelect} list={models} />
     </div>
   );
 }

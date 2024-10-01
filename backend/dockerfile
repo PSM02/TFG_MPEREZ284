@@ -1,0 +1,38 @@
+# Use Node.js base image
+FROM node:20-alpine AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package.json package-lock.json ./
+
+# Install build dependencies for canvas
+RUN apk add --no-cache python3 build-base cairo-dev pango-dev giflib-dev
+
+# Install npm dependencies
+RUN npm install
+
+# Copy remaining app files
+COPY . .
+
+# Build the app (if necessary, depends on your project)
+# RUN npm run build
+
+# Use a smaller base image for running the app
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy from the builder stage
+COPY --from=builder /app .
+
+# Install production dependencies
+RUN npm install --production
+
+# Expose port (change this if necessary)
+EXPOSE 3001
+
+# Command to run the app
+CMD ["npm", "start"]

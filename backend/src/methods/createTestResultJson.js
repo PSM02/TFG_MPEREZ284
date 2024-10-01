@@ -1,12 +1,11 @@
-const testsJson = require("../test/filtered_test.json");
 // const methods = require('../src/methods');
-const groq = require("../src/groq");
+const groq = require("./groq");
 const fs = require("fs");
 
 const groqLLM = groq.llm;
 const htmlDir = "backend/data/htmls/";
-const ruleDescs = require("../../data/rule_descs.json");
-const ruleUnderstandings = require("../../data/rule_understandings.json");
+const sc_info = require("../../data/SC_info.json");
+const testsJson = require("../../data/test/filtered_test_copy.json");
 
 informationProvided1 = (testType, info) => {
   if (testType == "testsWithNothing") {
@@ -32,6 +31,21 @@ informationProvided1 = (testType, info) => {
       present_understanding(info.ruleUnderstanding) +
       "</RULE UNDERSTANDING>\n"
     );
+  } else if (testType == "testsWithTechniques") {
+    return (
+      "<HTML>\n" +
+      info.html +
+      "</HTML>\n" +
+      "<RULE DESCRIPTION>\n" +
+      info.ruleDesc +
+      "</RULE DESCRIPTION>\n" +
+      "<RULE UNDERSTANDING>\n" +
+      present_understanding(info.ruleUnderstanding) +
+      "</RULE UNDERSTANDING>\n" +
+      "<RULE TECHNIQUES>\n" +
+      present_techniques(info.techniques) +
+      "</RULE TECHNIQUES>\n"
+    );
   }
 };
 
@@ -49,19 +63,32 @@ informationProvided2 = (testType, info) => {
       present_understanding(info.ruleUnderstanding) +
       "</RULE UNDERSTANDING>\n"
     );
+  } else if (testType == "testsWithTechniques") {
+    return (
+      "<RULE DESCRIPTION>\n" +
+      info.ruleDesc +
+      "</RULE DESCRIPTION>\n" +
+      "<RULE UNDERSTANDING>\n" +
+      present_understanding(info.ruleUnderstanding) +
+      "</RULE UNDERSTANDING>\n" +
+      "<RULE TECHNIQUES>\n" +
+      present_techniques(info.techniques) +
+      "</RULE TECHNIQUES>\n"
+    );
   }
 };
 
 message1 = (testType, html, rule) => {
+  const { techniques, ...understanding } = sc_info[rule].understanding;
   conversationChainAplicable =
     "HUMAN:\n" +
     "just say APPLICABLE or INAPPLICABLE\n" +
     "<INFORMATION PROVIDED>\n" +
     informationProvided1(testType, {
       html: html,
-      ruleDesc: ruleDescs[rule.split(":")[1]].text,
-      ruleUnderstanding:
-        ruleUnderstandings[rule.split("20").join("")].understanding,
+      ruleDesc: sc_info[rule].description,
+      ruleUnderstanding: understanding,
+      techniques: sc_info[rule].understanding.techniques,
     }) +
     "</INFORMATION PROVIDED>\n" +
     "</RULE DESCRIPTION>\n" +
@@ -84,9 +111,10 @@ continue1 = (testType, rule) => {
     "Now Tell me if wcag rule" +
     rule +
     informationProvided2(testType, {
-      ruleDesc: ruleDescs[rule.split(":")[1]].text,
-      ruleUnderstanding:
-        ruleUnderstandings[rule.split("20").join("")].understanding,
+      html: html,
+      ruleDesc: sc_info[rule].description,
+      ruleUnderstanding: understanding,
+      techniques: sc_info[rule].understanding.techniques,
     }) +
     " is aplicable to the html the same way you did before\n" +
     "JUST SAY APPLICABLE OR INAPPLICABLE\n";
@@ -100,9 +128,9 @@ message2 = (testType, html, rule) => {
     "<INFORMATION PROVIDED>\n" +
     informationProvided1(testType, {
       html: html,
-      ruleDesc: ruleDescs[rule.split(":")[1]].text,
-      ruleUnderstanding:
-        ruleUnderstandings[rule.split("20").join("")].understanding,
+      ruleDesc: sc_info[rule].description,
+      ruleUnderstanding: understanding,
+      techniques: sc_info[rule].understanding.techniques,
     }) +
     "</INFORMATION PROVIDED>\n" +
     "<WHAT TO DO>\n" +
@@ -117,21 +145,6 @@ message2 = (testType, html, rule) => {
   return conversationChainResult;
 };
 
-/* continue2 = (testType, rule) => {
-  conversationChainResult =
-    "HUMAN:\n" +
-    "Now tell me if it PASSES or FAILS wcag rule" +
-    rule +
-    informationProvided2(testType, {
-      ruleDesc: ruleDescs[rule.split(":")[1]].text,
-      ruleUnderstanding:
-        ruleUnderstandings[rule.split("20").join("")].understanding,
-    }) +
-    "the same way you did before\n" +
-    "JUST SAY PASSED OR FAILED\n";
-  return conversationChainResult;
-}; */
-
 present_understanding = (understanding) => {
   return (
     "INTENT: " +
@@ -144,6 +157,10 @@ present_understanding = (understanding) => {
     understanding["test-rules"] +
     "\n"
   );
+};
+
+present_techniques = (techniques) => {
+  return "TECHNIQUES: " + "\n" + techniques.join("\n") + "\n";
 };
 
 testResults = async (testType) => {
@@ -235,6 +252,7 @@ testResults = async (testType) => {
   console.log("=====================================");
 };
 
-testResults("testsWithNothing");
+//testResults("testsWithNothing");
 //testResults("testsWithWcagDescription");
 //testResults("testsWithUnderstanding");
+testResults("testsWithTechniques");

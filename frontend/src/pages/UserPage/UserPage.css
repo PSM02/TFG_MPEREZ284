@@ -1,0 +1,51 @@
+/* UserPage.css */
+
+.user-page {
+  margin-top: 3cm;
+  padding-left: 0.5cm;
+}
+
+/*make the buttons have no background*/
+.testButton {
+  background-color: transparent;
+  color: black;
+  font-size: 16px;
+  margin: 4px 2px;
+  text-align: center;
+  display: flex;
+  gap: 0.3cm;
+}
+
+.table-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto; /* Allows table to scroll horizontally on small screens */
+  /* the download link is on top of the table */
+  flex-direction: column;
+  align-items: center;
+}
+
+/*make the text blue*/
+.testButton:hover {
+  background-color: transparent;
+  color: blue;
+}
+
+.user-page .loader {
+  border: 7px solid lightgrey; /* Light grey */
+  border-top: 7px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+.testButtonPair {
+  display: flex;
+}
+
+.showAdvancedButton {
+  margin-left: 1cm;
+  background-color: #3498db;
+}
