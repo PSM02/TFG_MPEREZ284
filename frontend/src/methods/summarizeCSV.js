@@ -32,7 +32,7 @@ function calculateGuessRates(csvData) {
     data.wcag[wcag].count += 1;
     data.principle[pinciple].count += 1;
 
-    if (row.Result.toLowerCase() === row.Expected_Result) {
+    if (row.Result.toLowerCase() === row.Expected_Result.toLowerCase()) {
       data.sc[sc].guesses += 1;
       data.wcag[wcag].guesses += 1;
       data.principle[pinciple].guesses += 1;
@@ -42,7 +42,7 @@ function calculateGuessRates(csvData) {
   return [data, keys];
 }
 
-function allCSV(twn, twd, twu) {
+/* function allCSV(twn, twd, twu) {
   let twnData;
   let twdData;
   let twuData;
@@ -82,7 +82,7 @@ function allCSV(twn, twd, twu) {
   }
 
   return finalCSVData;
-}
+} */
 
 function ratesForTest(test) {
   let testData;

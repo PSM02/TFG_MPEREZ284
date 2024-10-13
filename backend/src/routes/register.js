@@ -4,13 +4,16 @@ const db = require("../methods/mongodb");
 const router = express.Router();
 
 register = async (req, res) => {
-  db.users.insert({ ...req.body, testsPerformed: 0 }, function (err, doc) {
-    if (err) {
-      res.status(400).send({ message: err });
-    } else {
-      res.status(200).send({ message: "User was registered successfully!" });
+  db.users.insert(
+    { ...req.body, testsPerformed: 0, ownModels: {} },
+    function (err, doc) {
+      if (err) {
+        res.status(400).send({ message: err });
+      } else {
+        res.status(200).send({ message: "User was registered successfully!" });
+      }
     }
-  });
+  );
 };
 
 checkDuplicateUsernameOrEmail = async (req, res, next) => {

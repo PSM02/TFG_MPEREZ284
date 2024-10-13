@@ -1,7 +1,7 @@
 import React from "react";
 import WebCsvDataTable from "../web_option/CsvTable"; // Adjust the import path as needed
 
-const WebCsvSection = ({ title, csvData, csvDownload, show }) => {
+const WebCsvSection = ({ title, csvData, csvDownload, csv_download_name }) => {
   if (!csvData) return null;
 
   return (
@@ -11,9 +11,9 @@ const WebCsvSection = ({ title, csvData, csvDownload, show }) => {
         <a
           className="download-link"
           href={`data:text/csv;charset=utf-8,${csvDownload}`}
-          download="data_twu.csv"
+          download={csv_download_name}
         >
-          Download CSV TWU
+          Download CSV
         </a>
         <WebCsvDataTable data={csvData} />
       </div>

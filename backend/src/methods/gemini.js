@@ -2,15 +2,25 @@ require("dotenv").config({ path: "backend/env/.env" });
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_STUDIO_API_KEY);
+async function setModelChain(m, api_key) {
+  if (!api_key) {
+    api_key = process.env.GOOGLE_AI_STUDIO_API_KEY;
+  }
 
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+  const genAI = new GoogleGenerativeAI(api_key);
 
-callLLM = async (query) => {
-  const result = await model.generateContent(query);
+  // Use async/await to handle the promise returned by getGenerativeModel
+  const chain = await genAI.getGenerativeModel({ model: m });
+
+  return chain;
+}
+
+callLLM = async (chain, query) => {
+  const result = await chain.generateContent(query);
   return result;
 };
 
 module.exports = {
   callLLM,
+  setModelChain,
 };

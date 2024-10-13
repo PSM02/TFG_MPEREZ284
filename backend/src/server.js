@@ -13,10 +13,12 @@ server.use(express.urlencoded({ extended: true, limit: "50mb" }));
 const registerRoute = require("./routes/register");
 const loginRoute = require("./routes/login");
 const resultJson = require("./routes/resultsJson");
+const userRoute = require("./routes/user");
 
 server.use("/api/auth/register", registerRoute);
 server.use("/api/auth/login", loginRoute);
 server.use("/service/results/json", resultJson);
+server.use("/api/user", userRoute);
 
 server.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!");

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./JsonOption.css";
 import jsonToCSV from "../../methods/jsonTestToCSV";
 import Papa from "papaparse";
@@ -10,15 +10,6 @@ import LogedBar from "../principal/bar/LogedBar";
 import SummarizedCSV from "../accesories/summarizedCSV";
 import ratesForTest from "../../methods/summarizeCSV";
 
-const models = [
-  "llama3-70b-8192",
-  "mixtral-8x7b-32768",
-  "gemma-7b-it",
-  "whisper-large-v3",
-  "gemini-1.5-flash",
-  "llava-v1.5-7b-4096-preview",
-];
-
 const informationTypes = [
   "WCAG Description",
   "Understanding",
@@ -27,31 +18,28 @@ const informationTypes = [
 ];
 
 function JsonUploadPage() {
+  const [models, setModels] = useState([
+    { model: "llama3-70b-8192", llm: "groq" },
+    { model: "mixtral-8x7b-32768", llm: "groq" },
+    { model: "gemma-7b-it", llm: "groq" },
+    { model: "whisper-large-v3", llm: "groq" },
+    { model: "gemini-1.5-flash", llm: "gemini" },
+    { model: "llama-3.2-90b-text-preview", llm: "groq" },
+  ]);
   const [jsonData, setJsonData] = useState(null);
   const [test, setTest] = useState(null);
-  /*   const [testsWithNothing, setTestsWithNothing] = useState(null);
-  const [testsWithWcagDescription, setTestsWithWcagDescription] =
-    useState(null);
-  const [testsWithUnderstanding, setTestsWithUnderstanding] = useState(null); */
   const [showJson, setShowJson] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // State to track loading status
+  const [isLoading, setIsLoading] = useState(false);
   const [csv_data, setcsv_data] = useState(null);
-  /* const [csv_twn_data, setcsv_twn_data] = useState(null);
-  const [csv_twd_data, setcsv_twd_data] = useState(null);
-  const [csv_twu_data, setcsv_twu_data] = useState(null); */
   const [download_csv, setdownload_csv] = useState(null);
-  /* const [download_csv_twn, setdownload_csv_twn] = useState(null);
-  const [download_csv_twd, setdownload_csv_twd] = useState(null);
-  const [download_csv_twu, setdownload_csv_twu] = useState(null); */
   const [selectedModel, setSelectedModel] = useState(null);
   const [checkedItems, setCheckedItems] = useState({});
-  //const [isAllChecked, setIsAllChecked] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const loged = localStorage.getItem("user");
 
   const handleSelect = (item) => {
     setSelectedModel(item);
-    console.log("Selected item:", item);
   };
 
   const handleFileChange = (event) => {
@@ -71,6 +59,16 @@ function JsonUploadPage() {
       }
     };
     reader.readAsText(file);
+  };
+
+  const handleOwnModelInfo = (event) => {
+    //take the father element of the input
+    const father = event.target.parentElement;
+    //now the value of each child
+    const llm = father.children[1].value;
+    const model = father.children[2].value;
+    const api_key = father.children[3].value;
+    setSelectedModel({ model: model, llm: llm, api_key: api_key });
   };
 
   /*   const manageTestsWithNothing = (twn) => {
@@ -129,7 +127,7 @@ function JsonUploadPage() {
   const testJson = async () => {
     setIsLoading(true); // Start loading
     // Send the JSON data to the server /service/results/json
-    fetch("http://localhost:3001/service/results/json", {
+    fetch("http://localhost:3003/service/results/json", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -149,8 +147,45 @@ function JsonUploadPage() {
       .catch((error) => {
         console.error("Error sending JSON to server:", error);
         setIsLoading(false); // Also stop loading on error
+        setErrorMessage("Error occurred at server");
       });
   };
+
+  const catchOwnModels = async () => {
+    if (loged) {
+      fetch("http://localhost:3003/api/user/getUserInfo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user: localStorage.getItem("user"),
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          Object.keys(data.ownModels).forEach((key) => {
+            if (!models.find((model) => model.model === key)) {
+              models.push({
+                model: key,
+                llm: data.ownModels[key].llm,
+                api_key: data.ownModels[key].api_key,
+              });
+            }
+          });
+          setModels([...models]);
+        })
+        .catch((error) => {
+          console.error("Error sending JSON to server:", error);
+        });
+    }
+  };
+
+  useEffect(() => {
+    setInterval(async () => {
+      await catchOwnModels();
+    }, 1000);
+  }, []);
 
   return (
     <div className="container">
@@ -163,6 +198,7 @@ function JsonUploadPage() {
         onChange={handleFileChange}
       />
       {isLoading && <div className="loader" />}
+      {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
       <button className="JsonButton" onClick={testJson}>
         Test JSON
       </button>
@@ -177,6 +213,34 @@ function JsonUploadPage() {
         />
         <DropDownList onSelect={handleSelect} list={models} />
       </div>
+      <hr></hr>
+      <h6 className="left-text">
+        If you want to test a model that is not in the list, please provide the
+        llm name, model name and api_key:
+      </h6>
+      <div className="input-group">
+        <span className="input-group-text">
+          llm name, model name and api_key:
+        </span>
+        <input
+          type="text"
+          aria-label="llm"
+          className="form-control"
+          onChange={handleOwnModelInfo}
+        />
+        <input
+          type="text"
+          aria-label="model"
+          className="form-control"
+          onChange={handleOwnModelInfo}
+        />
+        <input
+          type="text"
+          aria-label="api_key"
+          className="form-control"
+          onChange={handleOwnModelInfo}
+        />
+      </div>
       {showJson && jsonData && (
         <div className="json-display">
           JSON TO TEST
@@ -189,40 +253,12 @@ function JsonUploadPage() {
           <pre>{JSON.stringify(test, null, 2)}</pre>
         </div>
       )}
-      {/* {showJson && testsWithNothing && (
-        <div className="json-display">
-          TESTS WITH NOTHING
-          <pre>{JSON.stringify(testsWithNothing, null, 2)}</pre>
-        </div>
-      )}
-      {showJson && testsWithWcagDescription && (
-        <div className="json-display">
-          TESTS WITH WCAG DESCRIPTION
-          <pre>{JSON.stringify(testsWithWcagDescription, null, 2)}</pre>
-        </div>
-      )}
-      {showJson && testsWithUnderstanding && (
-        <div className="json-display">
-          TESTS WITH UNDERSTANDING
-          <pre>{JSON.stringify(testsWithUnderstanding, null, 2)}</pre>
-        </div>
-      )} */}
       {csv_data && <SummarizedCSV data={ratesForTest(csv_data)} />}
       {csv_data && (
         <button onClick={() => setShowAdvanced(!showAdvanced)}>
           Show Advanced
         </button>
       )}
-      {/* {(csv_twn_data || csv_twd_data || csv_twu_data) && (
-        <SummarizedCSV
-          data={allCSV(csv_twn_data, csv_twd_data, csv_twu_data)}
-        />
-      )}
-      {(csv_twn_data || csv_twd_data || csv_twu_data) && (
-        <button onClick={() => setShowAdvanced(!showAdvanced)}>
-          Show Advanced
-        </button>
-      )} */}
       {showAdvanced && csv_data && (
         <div className="table-container">
           <a
@@ -239,42 +275,6 @@ function JsonUploadPage() {
           <CsvDataTable data={csv_data} />
         </div>
       )}
-      {/* {showAdvanced && download_csv_twn && (
-        <div className="table-container">
-          <a
-            className="download-link"
-            href={`data:text/csv;charset=utf-8,${download_csv_twn}`}
-            download="data_twn.csv"
-          >
-            Download CSV TWN
-          </a>
-          <CsvDataTable data={csv_twn_data} />
-        </div>
-      )}
-      {showAdvanced && download_csv_twd && (
-        <div className="table-container">
-          <a
-            className="download-link"
-            href={`data:text/csv;charset=utf-8,${download_csv_twd}`}
-            download="data_twd.csv"
-          >
-            Download CSV TWD
-          </a>
-          <CsvDataTable data={csv_twd_data} />
-        </div>
-      )}
-      {showAdvanced && download_csv_twu && (
-        <div className="table-container">
-          <a
-            className="download-link"
-            href={`data:text/csv;charset=utf-8,${download_csv_twu}`}
-            download="data_twu.csv"
-          >
-            Download CSV TWU
-          </a>
-          <CsvDataTable data={csv_twu_data} />
-        </div>
-      )} */}
     </div>
   );
 }

@@ -103,3 +103,7 @@ input[type="file"] {
   /*separation between elements*/
   gap: 50px;
 }
+
+.left-text {
+  margin-right: 540px;
+}

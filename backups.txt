@@ -1,37 +1,41 @@
-post(/) de resultsJson.js:
-
-router.post("/", async (req, res) => {
-  if (req.body.user) {
-    await storeStartedTest(req.body.user);
-  }
-  const result = await resultFromJson(
-    "testsWithNothing",
-    req.body.json,
-    req.body.model
-  );
-  if (req.body.user) {
-    db.ResultJsons.find({ status: "started" }, function (err, doc) {
-      if (err) {
-        console.error(err);
-      } else {
-        db.ResultJsons.update(
-          { _id: doc[0]._id },
-          { $set: { test: removeDots(result), status: "finished" } },
-          function (err, doc) {
-            if (err) {
-              console.error(err);
+alterTest = (testJson) => {
+  test = JSON.parse(testJson.test);
+  for (i in test) {
+    for (j in test[i]) {
+      if (!test[i][j].result) {
+        for (k in test[i][j]) {
+          if (k.includes("wcag20:")) {
+            if (test[i][j][k].concreteHTML.toLowerCase().includes("passes")) {
+              test[i][j][k].result = "Passed";
             }
           }
-        );
+        }
       }
-    });
+    }
   }
-  res.send(result);
+  return JSON.stringify(test);
+};
+
+router.post("/alterTest", async (req, res) => {
+  testCode = req.body.code;
+  db.ResultJsons.find({ code: testCode }, function (err, doc) {
+    if (err) {
+      console.error(err);
+      res.status(400).send({ message: err });
+    } else {
+      result = doc[0];
+      newTest = alterTest(result);
+      db.ResultJsons.update(
+        { _id: result._id },
+        { $set: { test: newTest } },
+        function (err) {
+          if (err) {
+            console.error(err);
+            res.status(400).send({ message: err });
+          }
+        }
+      );
+    }
+  });
+  res.status(200).send({ message: "Test altered" });
 });
-
-
-backend:
-sha256:2161c37398bf18b7036cbe7b4a8c0d7b137889d38b59823cc440e2a33e5e4f4c
-
-frontend:
-sha256:b08b4e15b40af775c2d8c1a0d50d50a77d313784bfd17f6d8edc63c9a927f60d

@@ -11,12 +11,12 @@ function hJsonToCSV(jsonData) {
     //tests is a json object of tests
     Object.entries(tests).forEach(([test, testObj]) => {
       //testObj is a json object of test
-      if (testObj.hasOwnProperty("inaplicable_rule")) {
+      if (testObj.hasOwnProperty("inapplicable_rule")) {
         testObj.concreteHTML = `"${testObj.concreteHTML
           .replace(/\n/g, " ")
           .replace(/"/g, '""')}"`;
         csvRows.push(
-          `${test},${actrule},${testObj.inaplicable_rule},Inaplicable,${testObj.expected},${testObj.time_applicable},,${testObj.concreteHTML},`
+          `${test},${actrule},${testObj.inapplicable_rule},inapplicable,${testObj.expected},${testObj.time_applicable},,${testObj.concreteHTML},`
         );
       } else {
         //for each element in the test object

@@ -7,7 +7,7 @@ cwd = os.getcwd()
 with open(cwd + '/chroma_python/data/sortedTechniques.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-chroma_client = chromadb.PersistentClient(path="./db")
+chroma_client = chromadb.PersistentClient(path="./chroma_python/db")
 collection = chroma_client.get_or_create_collection(name="techniques_collection")
 
 def techniquesCollection():  
@@ -16,10 +16,16 @@ def techniquesCollection():
     ids = []
     i = 0
     for key, value in data.items():
+        item ={}
+        for k in value:
+            # if item k is not a key in the dictionary, add it
+            if k not in list(item.keys()):
+                item[k] = k
+        criterias.append(item)
         documents.append(key)
-        criterias.append(value)
-        ids.append("doc"+i)
+        ids.append("doc"+str(i))
         i += 1
+    
     
     collection.upsert(
         documents=documents,
@@ -28,7 +34,9 @@ def techniquesCollection():
     )
     print("Data inserted")
 
-if __name__ == '__main__':
-    # Populate the database before starting the Flask app
-    techniquesCollection()
-    print("Database populated successfully.")
+techniquesCollection()
+
+""" def clearCollection():
+    chroma_client.delete_collection(name="techniques_collection")
+
+clearCollection() """

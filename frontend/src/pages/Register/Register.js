@@ -22,7 +22,7 @@ function Register() {
       name: name,
       surname: surname,
     };
-    fetch("http://localhost:3001/api/auth/register", {
+    fetch("http://localhost:3003/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

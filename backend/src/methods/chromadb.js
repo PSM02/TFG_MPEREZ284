@@ -1,10 +1,10 @@
 const fetch = require("node-fetch");
 
-async function chromaQuery(query) {
+async function chromaQuery(criteria) {
   try {
     const url = new URL("http://localhost:5000/query");
-    url.searchParams.append("query_text", query);
-    url.searchParams.append("n_results", 5); // You can adjust the number of results as needed
+    url.searchParams.append("query_text", "");
+    url.searchParams.append("criteria", criteria);
 
     const response = await fetch(url, {
       method: "GET",
@@ -27,13 +27,14 @@ async function chromaQuery(query) {
   }
 }
 
-const pritnData = (data) => {
-  for (const result of data.metadatas[0]) {
-    console.log(result.criterias.split("_"));
+searchTechniques = async (criteria) => {
+  try {
+    const data = await chromaQuery(criteria);
+    return data.documents[0];
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
   }
 };
 
-// Example usage
-chromaQuery("technique1")
-  .then((data) => pritnData(data))
-  .catch((error) => console.error(error));
+module.exports = searchTechniques;

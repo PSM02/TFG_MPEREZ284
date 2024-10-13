@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const DropDownList = ({ list, onSelect }) => {
-  const [selected, setSelected] = React.useState(null);
+  const [selected, setSelected] = useState(null);
 
   const handleSelect = (item) => {
     setSelected(item);
@@ -18,7 +18,7 @@ const DropDownList = ({ list, onSelect }) => {
         aria-haspopup="true"
         aria-expanded="false"
       >
-        {!selected ? "Dropdown" : selected}
+        {!selected ? "Dropdown" : selected.model}
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
         {list.map((item, index) => (
@@ -28,7 +28,7 @@ const DropDownList = ({ list, onSelect }) => {
             type="button"
             onClick={() => handleSelect(item)} // Call onSelect with the clicked item
           >
-            {item}
+            {item.model}
           </button>
         ))}
       </div>

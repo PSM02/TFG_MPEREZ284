@@ -1,27 +1,28 @@
 const fs = require("fs");
 const LLM = require("./callLLM");
+const searchTechniques = require("./chromadb");
 
 const htmlDir = "data/htmls/";
 const sc_info = require("../../data/SC_info.json");
-const originalTests = require("../../data/test/original_test_justAA.json");
+//const Tests = require("../../data/test/sampleTestJson.json");
 
-informationProvided1 = (testType, info) => {
+informationProvided = (testType, info) => {
   returnInfo = "<HTML>\n" + info.html + "\n</HTML>\n";
   if (testType.includes("Desc")) {
     returnInfo +=
-      "<RULE DESCRIPTION>\n" + info.ruleDesc + "</RULE DESCRIPTION>\n";
+      "<RULE_DESCRIPTION>\n" + info.ruleDesc + "</RULE_DESCRIPTION>\n";
   }
   if (testType.includes("Undr")) {
     returnInfo +=
-      "<RULE UNDERSTANDING>\n" +
+      "<RULE_UNDERSTANDING>\n" +
       present_understanding(info.ruleUnderstanding) +
-      "</RULE UNDERSTANDING>\n";
+      "</RULE_UNDERSTANDING>\n";
   }
   if (testType.includes("Tech")) {
     returnInfo +=
-      "<RULE TECHNIQUES>\n" +
+      "<RULE_TECHNIQUES>\n" +
       present_techniques(info.techniques) +
-      "</RULE TECHNIQUES>\n";
+      "</RULE_TECHNIQUES>\n";
   }
   return returnInfo;
 };
@@ -30,16 +31,31 @@ message1 = (testType, html, rule) => {
   const { techniques, ...understanding } = sc_info[rule].understanding;
   conversationChainAplicable =
     "<INFORMATION PROVIDED>\n" +
-    informationProvided1(testType, {
+    informationProvided(testType, {
       html: html,
       ruleDesc: sc_info[rule].description,
       ruleUnderstanding: understanding,
-      techniques: sc_info[rule].understanding.techniques,
+      techniques: techniques,
     }) +
     "</INFORMATION PROVIDED>\n" +
-    "You are a helpful assistant that just, with the given information, says if the wcag rule: " +
+    "<TASK>\n" +
+    "You are a helpful assistant that, with the given information, decides if the WCAG rule " +
     rule +
-    " is applicable or inapplicable to the html and provides the html that make them decide\n";
+    "is applicable or inapplicable to the HTML and provides the HTML portion that made you decide." +
+    "<Specifics>\n" +
+    "1. Review the HTML code provided within the <HTML> tag.\n" +
+    "2. Analyze the WCAG rule details given in the <RULE_DESCRIPTION>, <RULE_UNDERSTANDING> and <RULE_TECHNIQUES> tags.\n" +
+    "3. Decide if the" +
+    rule +
+    "is applicable or inapplicable to the HTML structure.\n" +
+    "4. Highlight the section of the HTML that helped you make your decision.\n" +
+    "</Specifics>\n" +
+    "<ANSWER_FORMAT>\n" +
+    'You should return a VALID JSON object with two fields: "result" and "description"\n' +
+    '"result" can only have 2 possible values: "applicable" or "inapplicable"\n' +
+    "(depending on whether the current success criterion is applicable or inapplicable to the Html).\n" +
+    '"description" must record the reasoning behind the result and THE HTML portion that made you decide."\n';
+  "</ANSWER_FORMAT>\n" + "</TASK>\n";
   return conversationChainAplicable;
 };
 
@@ -47,35 +63,279 @@ message2 = (testType, html, rule) => {
   const { techniques, ...understanding } = sc_info[rule].understanding;
   conversationChainResult =
     "<INFORMATION PROVIDED>\n" +
-    informationProvided1(testType, {
+    informationProvided(testType, {
       html: html,
       ruleDesc: sc_info[rule].description,
       ruleUnderstanding: understanding,
       techniques: sc_info[rule].understanding.techniques,
     }) +
     "</INFORMATION PROVIDED>\n" +
-    "You are a helpful assistant that just, with the given information, says if the html has passed or failed wcag rule: " +
+    "<TASK>\n" +
+    "You are a helpful assistant responsible for determining if the HTML has passed or failed the WCAG rule:" +
     rule +
-    "and provides the html portion that makes it pass or fail\n";
+    "Specifics:\n" +
+    "1. Review the HTML code provided within the <HTML> tag.\n" +
+    "2. Analyze the WCAG rule details given in the <RULE_DESCRIPTION>, <RULE_UNDERSTANDING> and <RULE_TECHNIQUES> tags.\n" +
+    "3. Decide if the HTML has PASSED or FAILED rule" +
+    rule +
+    ".\n4. Highlight the section of the HTML that helped you make your decision.\n" +
+    "<ANSWER_FORMAT>\n" +
+    'You should return a VALID JSON object with two fields: "result" and "description"\n' +
+    '"result" can only have 2 possible values: "passed" or failed"\n' +
+    "(depending on whether the Html has passed or failed the current succes criterion).\n" +
+    '"description" must record the reasoning behind the resultand THE HTML portion that made you decide."\n';
+  "</ANSWER_FORMAT>\n" + "</TASK>\n";
   return conversationChainResult;
 };
 
+trimEdges = (str) => {
+  return str.substring(1, str.length - 1);
+};
+
+function manageResponse(jsonString) {
+  fixed = jsonString.replace(/[\r\n\t]/g, (match) => {
+    switch (match) {
+      case "\r":
+        return "";
+      case "\n":
+        return "";
+      case "\t":
+        return "";
+      default:
+        return match;
+    }
+  });
+  result = fixed.split('"result":')[1].split(",")[0].replace(" ", "");
+  result = trimEdges(result);
+  description = fixed.split('"description":')[1];
+  description = description.substring(1, description.length - 1);
+  description = trimEdges(description);
+  return { result: result, description: description };
+}
+
 present_understanding = (understanding) => {
   return (
-    "INTENT: " +
+    "<INTENT>\n" +
     understanding.intent +
-    "\n" +
-    "EXAMPLES: " +
+    "\n</INTENT>\n" +
+    "<EXAMPLES>\n" +
     understanding.examples +
-    "\n" +
-    "TEST-RULES: " +
+    "\n</EXAMPLES>\n" +
+    "<TEST RULES>\n" +
     understanding["test-rules"] +
-    "\n"
+    "\n</TEST RULES>\n"
   );
 };
 
 present_techniques = (techniques) => {
-  return "TECHNIQUES: " + "\n" + techniques.join("\n") + "\n";
+  textTechniques = "";
+  for (i in techniques) {
+    tech = techniques[i];
+    techID = tech.split(":")[0];
+    //techText is the rest of the string after the first double point
+    techText = tech.split(":").slice(1).join("");
+    textTechniques +=
+      "<" + techID + ">\n" + techText + "\n" + "</" + techID + ">\n";
+  }
+  return textTechniques;
+};
+
+messageApplicableForTechniques = (html, technique1, rule) => {
+  informationProvided;
+  conversationChainAplicable =
+    "<INFORMATION PROVIDED>\n" +
+    "<HTML>\n" +
+    html +
+    "</HTML>\n" +
+    "<TECHNIQUE>\n" +
+    technique1 +
+    "</TECHNIQUE>\n" +
+    "</INFORMATION PROVIDED>\n" +
+    "<TASK>\n" +
+    "You are a helpful assistant that, with the given information, decides if the WCAG rule " +
+    rule +
+    "is applicable or inapplicable to the HTML and provides the HTML portion that made you decide." +
+    "<Specifics>\n" +
+    "1. Review the HTML code provided within the <HTML> tag.\n" +
+    "2. Analyze the HTML and WCAG rule details given in the <INFORMATION PROVIDED> tag.\n" +
+    "3. Decide if the" +
+    rule +
+    "is applicable or inapplicable to the HTML structure.\n" +
+    "4. Highlight the section of the HTML that helped you make your decision.\n" +
+    "</Specifics>\n" +
+    "<ANSWER_FORMAT>\n" +
+    'You should return a VALID JSON object with two fields: "result" and "description"\n' +
+    '"result" can only have 2 possible values: "applicable" or "inapplicable"\n' +
+    "(depending on whether the current success criterion is applicable or inapplicable to the Html).\n" +
+    '"description" must record the reasoning behind the result and THE HTML portion that made you decide."\n';
+  "</ANSWER_FORMAT>\n" + "</TASK>\n";
+  return conversationChainAplicable;
+};
+
+messageContinueApplicableForTechniques = (
+  html,
+  technique,
+  previousResult,
+  previousTechnique,
+  rule
+) => {
+  conversationChainAplicable =
+    "<INFORMATION PROVIDED>\n" +
+    "<HTML>\n" +
+    html +
+    "</HTML>\n" +
+    "<TECHNIQUE>\n" +
+    technique +
+    "</TECHNIQUE>\n" +
+    "<PREVIOUS>\n" +
+    "<PREVIOUS RESULT>\n" +
+    "<TECHNIQUE>\n" +
+    previousTechnique +
+    "</TECHNIQUE>\n" +
+    "<RESULT>\n" +
+    previousResult +
+    "</RESULT>\n" +
+    "</PREVIOUS RESULT>\n" +
+    "</INFORMATION PROVIDED>\n" +
+    "<TASK>\n" +
+    "You are a helpful assistant that, with the given information, decides if the WCAG rule " +
+    rule +
+    "is applicable or inapplicable to the HTML and provides the HTML portion that made you decide." +
+    "<Specifics>\n" +
+    "1. Review the HTML code provided within the <HTML> tag.\n" +
+    "2. Analyze the HTML and WCAG rule details given in the <INFORMATION PROVIDED> tag.\n" +
+    "3. Decide if the" +
+    rule +
+    "still mantains the same result as the one given in the <RESULT> tag.\n" +
+    "4. Highlight the section of the HTML that helped you make your decision.\n" +
+    "</Specifics>\n" +
+    "<ANSWER_FORMAT>\n" +
+    'You should return a VALID JSON object with two fields: "result" and "description"\n' +
+    '"result" can only have 2 possible values: "applicable" or "inapplicable"\n' +
+    "(depending on whether the current success criterion is applicable or inapplicable to the Html).\n" +
+    '"description" must record the reasoning behind the result and THE HTML portion that made you decide."\n';
+  "</ANSWER_FORMAT>\n" + "</TASK>\n";
+  return conversationChainAplicable;
+};
+
+messageResultForTechniques = (html, technique1, rule) => {
+  conversationChainResult =
+    "<INFORMATION PROVIDED>\n" +
+    "<HTML>\n" +
+    html +
+    "</HTML>\n" +
+    "<TECHNIQUE>\n" +
+    technique1 +
+    "</TECHNIQUE>\n" +
+    "</INFORMATION PROVIDED>\n" +
+    "<TASK>\n" +
+    "You are a helpful assistant responsible for determining if the HTML has passed or failed the WCAG rule:" +
+    rule +
+    "Specifics:\n" +
+    "1. Review the HTML code provided within the <HTML> tag.\n" +
+    "2. Analyze the HTML and WCAG rule details given in the <INFORMATION PROVIDED> tag.\n" +
+    "3. Decide if the HTML has PASSED or FAILED rule" +
+    rule +
+    ".\n4. Highlight the section of the HTML that helped you make your decision.\n" +
+    "<ANSWER_FORMAT>\n" +
+    'You should return a VALID JSON object with two fields: "result" and "description"\n' +
+    '"result" can only have 2 possible values: "passed" or failed"\n' +
+    "(depending on whether the Html has passed or failed the current succes criterion).\n" +
+    '"description" must record the reasoning behind the resultand THE HTML portion that made you decide."\n';
+  "</ANSWER_FORMAT>\n" + "</TASK>\n";
+  return conversationChainResult;
+};
+
+messageContinueResultForTechniques = (
+  html,
+  technique,
+  previousResult,
+  previousTechnique,
+  rule
+) => {
+  conversationChainResult =
+    "<INFORMATION PROVIDED>\n" +
+    "<HTML>\n" +
+    html +
+    "</HTML>\n" +
+    "<TECHNIQUE>\n" +
+    technique +
+    "</TECHNIQUE>\n" +
+    "<PREVIOUS>\n" +
+    "<PREVIOUS RESULT>\n" +
+    "<TECHNIQUE>\n" +
+    previousTechnique +
+    "</TECHNIQUE>\n" +
+    "<RESULT>\n" +
+    previousResult +
+    "</RESULT>\n" +
+    "</PREVIOUS RESULT>\n" +
+    "</INFORMATION PROVIDED>\n" +
+    "<TASK>\n" +
+    "You are a helpful assistant responsible for determining if the result of the HTML passing or failing the WCAG rule:" +
+    rule +
+    "is the same result as the one given in the <RESULT> tag:" +
+    "\nSpecifics:\n" +
+    "1. Review the HTML code provided within the <HTML> tag.\n" +
+    "2. Analyze the HTML and WCAG rule details given in the <INFORMATION PROVIDED> tag.\n" +
+    "3. Decide if the HTML has PASSED or FAILED rule" +
+    rule +
+    ".\n4. Highlight the section of the HTML that helped you make your decision.\n" +
+    "<ANSWER_FORMAT>\n" +
+    'You should return a VALID JSON object with two fields: "result" and "description"\n' +
+    '"result" can only have 2 possible values: "passed" or failed"\n' +
+    "(depending on whether the Html has passed or failed the current succes criterion).\n" +
+    '"description" must record the reasoning behind the resultand THE HTML portion that made you decide."\n';
+  "</ANSWER_FORMAT>\n" + "</TASK>\n";
+  return conversationChainResult;
+};
+
+techniquesQ = async (whatFor, html, criteria, chain, llm) => {
+  techniques = await searchTechniques(criteria);
+  console.log(techniques);
+  prebiousTechnique = techniques[0];
+  message =
+    whatFor == "Applicable"
+      ? messageApplicableForTechniques(html, techniques[0], criteria)
+      : messageResultForTechniques(html, techniques[0], criteria);
+  result = await LLM.callLLM(message, chain, llm);
+  result = manageResponse(result);
+  console.log(
+    "Done with technique 1 of " +
+      techniques.length +
+      ", result: " +
+      result.result
+  );
+  for (let i = 1; i < techniques.length; i++) {
+    message =
+      whatFor == "Applicable"
+        ? messageContinueApplicableForTechniques(
+            html,
+            techniques[i],
+            result.result,
+            prebiousTechnique,
+            criteria
+          )
+        : messageContinueResultForTechniques(
+            html,
+            techniques[i],
+            result.result,
+            prebiousTechnique,
+            criteria
+          );
+    result = await LLM.callLLM(message, chain, llm);
+    result = manageResponse(result);
+    console.log(
+      "Done with technique " +
+        (i + 1) +
+        " of " +
+        techniques.length +
+        ", result: " +
+        result.result
+    );
+    prebiousTechnique = techniques[i];
+  }
+  return result;
 };
 
 resultFromJson3 = async (testType, testsJson, model) => {
@@ -246,20 +506,34 @@ continueResultFromJson = async (
   results,
   lastTest
 ) => {
-  testcaseIDs = originalTests.testcases.map((tc) => tc.testcaseId);
-  let cont = testcaseIDs.indexOf(lastTest.split("_")[1]);
+  console.log(lastTest);
+  testcaseIDs = testsJson.testcases.map(
+    (tc) => tc.ruleId + "_" + tc.testcaseId
+  );
+  let cont = testcaseIDs.indexOf(lastTest);
+  console.log("continuing from test " + cont);
   let final = results;
 
-  return await doTest(testType, testsJson, model, JSON.parse(final), cont);
+  console.log(
+    testsJson.testcases[cont].ruleId +
+      "_" +
+      testsJson.testcases[cont].testcaseId
+  );
+
+  return await doTest(testType, testsJson, model, final, cont);
 };
 
 doTest = async (testType, testsJson, model, final, cont) => {
   let chain = await LLM.initialize(model);
-  testsJson = originalTests;
   let current_test = "";
   let allTests = testsJson.testcases.length;
 
-  //const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  maxRetries = 2;
+  retries = 0;
+  let applicable;
+  let result;
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   while (cont <= allTests) {
     try {
@@ -277,18 +551,30 @@ doTest = async (testType, testsJson, model, final, cont) => {
         let start_time_applicable;
         for (let i in criterias) {
           let key = criterias[i];
-          let questionAplicable = message1(testType, html, key);
           start_time_applicable = new Date().getTime();
-          let aplicable = await LLM.callLLM(questionAplicable, chain);
-          if (aplicable.toLowerCase().includes("inapplicable")) {
+          if (testType.includes("Tech")) {
+            applicable = await techniquesQ(
+              "Applicable",
+              html,
+              key,
+              chain,
+              model.llm
+            );
+          } else {
+            let questionAplicable = message1(testType, html, key);
+            applicable = await LLM.callLLM(questionAplicable, chain, model.llm);
+            applicable = manageResponse(applicable);
+          }
+          //console.log(applicable.result);
+          if (applicable.result.toLowerCase() === "inapplicable") {
             stop = true;
             let end_time_applicable = new Date().getTime();
             final[element.ruleId][element.testcaseId] = {
               result: "inapplicable",
-              concreteHTML: aplicable,
+              concreteHTML: applicable.description,
               expected: element.expected,
               time_applicable: end_time_applicable - start_time_applicable,
-              inaplicable_rule: key,
+              inapplicable_rule: key,
             };
             break;
           }
@@ -301,18 +587,24 @@ doTest = async (testType, testsJson, model, final, cont) => {
           obj["time_applicable"] = end_time_applicable - start_time_applicable;
           for (let j in criterias) {
             let k = criterias[j];
-            let question = message2(testType, html, k);
             let start_time_result = new Date().getTime();
-            let result = await LLM.callLLM(question, chain);
+            if (testType.includes("Tech")) {
+              result = await techniquesQ("Result", html, k, chain, model.llm);
+            } else {
+              let question = message2(testType, html, k);
+              result = await LLM.callLLM(question, chain, model.llm);
+              result = manageResponse(result);
+            }
             let end_time_result = new Date().getTime();
-
-            let concreteResult = result.toLowerCase().includes("passed")
-              ? "passed"
-              : "failed";
+            let concreteResult =
+              result.result.toLowerCase() === "passed" ||
+              result.result.toLowerCase() === "passes"
+                ? "passed"
+                : "failed";
 
             obj[k] = {
               result: concreteResult,
-              concreteHTML: result,
+              concreteHTML: result.description,
               expected: element.expected,
               time_result: end_time_result - start_time_result,
             };
@@ -328,12 +620,23 @@ doTest = async (testType, testsJson, model, final, cont) => {
     } catch (error) {
       console.log("Error occurred in test: " + current_test);
       console.log(error);
-      console.log("Waiting 10 minutes before retrying...");
-
-      /* // Wait for 10 minutes before retrying
-      await wait(3 * 60 * 1000);
-      console.log("Retrying from test: " + current_test); */
-      return [final, current_test];
+      console.log("Waiting 30 minutes before retrying...");
+      /* if (retries < maxRetries) {
+        retries++;
+        //wait 1 hour before retrying
+        await wait(40 * 60 * 1000);
+        console.log("Retrying test: " + current_test);
+        retrieTime = new Date();
+        console.log("At " + retrieTime);
+      } else {
+        console.log("Max retries reached. Exiting...");
+        return [final, current_test];
+      } */
+      if (error.message.includes("split")) {
+        console.log("Error in split, retrying...");
+      } else {
+        return [final, current_test];
+      }
     }
   }
 

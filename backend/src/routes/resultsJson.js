@@ -3,7 +3,7 @@ const db = require("../methods/mongodb");
 const router = express.Router();
 
 const jsonTesting = require("../methods/resultFromJson");
-const testWegPage = require("../methods/testWegPage");
+const WegTesting = require("../methods/testWegPage");
 
 // Priority queue array
 let requestQueue = [];
@@ -31,6 +31,29 @@ async function getID(user) {
         resolve(doc[0].username + doc[0].testsPerformed);
       }
     });
+  });
+}
+
+async function addNewOwnModel(user, model) {
+  db.users.find({ username: user }, function (err, doc) {
+    if (err) {
+      console.error(err);
+    } else {
+      //look if model already exists
+      if (!doc[0].ownModels[model.model]) {
+        newOwnModels = doc[0].ownModels;
+        newOwnModels[model.model] = { llm: model.llm, api_key: model.api_key };
+        db.users.update(
+          { _id: doc[0]._id },
+          { $set: { ownModels: newOwnModels } },
+          function (err) {
+            if (err) {
+              console.error(err);
+            }
+          }
+        );
+      }
+    }
   });
 }
 
@@ -182,97 +205,97 @@ async function startTest(code) {
 async function jsonTest(json, model, infProv, continuing) {
   results = {};
   info = "";
-  if (infProv.includes("All")) {
-    try {
-      [results_wD, final_test_wD] = await jsonTesting.resultFromJson(
-        "Desc",
-        json,
-        model
-      );
-      results["wD"] = results_wD;
-      [results_wU, final_test_wU] = await jsonTesting.resultFromJson(
-        "Undr",
-        json,
-        model
-      );
-      results["wU"] = results_wU;
-      [results_wT, final_test_wT] = await jsonTesting.resultFromJson(
-        "Tech",
-        json,
-        model
-      );
-      results["wT"] = results_wT;
-      [results_wDU, final_test_wDU] = await jsonTesting.resultFromJson(
-        "DescUndr",
-        json,
-        model
-      );
-      results["wDU"] = results_wDU;
-      [results_wDT, final_test_wDT] = await jsonTesting.resultFromJson(
-        "DescTech",
-        json,
-        model
-      );
-      results["wDT"] = results_wDT;
-      [results_wUT, final_test_UT] = await jsonTesting.resultFromJson(
-        "UndrTech",
-        json,
-        model
-      );
-      results["wUT"] = results_wUT;
-      [results_wDUT, final_test_wDUT] = await jsonTesting.resultFromJson(
-        "DescUndrTech",
-        json,
-        model
-      );
-      results["wDUT"] = results_wDUT;
-      return results;
-    } catch (error) {}
-  } else {
-    if (infProv.includes("WCAG Description")) {
-      info += "Desc ";
-    }
-    if (infProv.includes("Understanding")) {
-      info += "Undr ";
-    }
-    if (infProv.includes("Techniques")) {
-      info += "Tech";
-    }
+  /* if (infProv.includes("All")) { */
+  try {
+    [results_wD, final_test_wD] = await jsonTesting.resultFromJson(
+      "Desc",
+      json,
+      model
+    );
+    results["wD"] = results_wD;
+    [results_wU, final_test_wU] = await jsonTesting.resultFromJson(
+      "Undr",
+      json,
+      model
+    );
+    results["wU"] = results_wU;
+    [results_wT, final_test_wT] = await jsonTesting.resultFromJson(
+      "Tech",
+      json,
+      model
+    );
+    results["wT"] = results_wT;
+    [results_wDU, final_test_wDU] = await jsonTesting.resultFromJson(
+      "DescUndr",
+      json,
+      model
+    );
+    results["wDU"] = results_wDU;
+    [results_wDT, final_test_wDT] = await jsonTesting.resultFromJson(
+      "DescTech",
+      json,
+      model
+    );
+    results["wDT"] = results_wDT;
+    [results_wUT, final_test_UT] = await jsonTesting.resultFromJson(
+      "UndrTech",
+      json,
+      model
+    );
+    results["wUT"] = results_wUT;
+    [results_wDUT, final_test_wDUT] = await jsonTesting.resultFromJson(
+      "DescUndrTech",
+      json,
+      model
+    );
+    results["wDUT"] = results_wDUT;
+    return results;
+  } catch (error) {}
+  if (infProv.includes("WCAG Description")) {
+    info += "Desc ";
+  }
+  if (infProv.includes("Understanding")) {
+    info += "Undr ";
+  }
+  if (infProv.includes("Techniques")) {
+    info += "Tech";
+  }
 
-    if (continuing) {
-      // Get the test from the db
-      [results, lastTest] = await jsonTesting.continueResultFromJson(
-        info,
-        json,
-        model,
-        continuing.upToNowTest,
-        continuing.haltedTest
-      );
-      return [results, lastTest];
-    } else {
-      [results, lastTest] = await jsonTesting.resultFromJson(info, json, model);
-      return [results, lastTest];
-    }
+  if (continuing) {
+    // Get the test from the db
+    [results, lastTest] = await jsonTesting.continueResultFromJson(
+      info,
+      json,
+      model,
+      continuing.upToNowTest,
+      continuing.haltedTest
+    );
+    return [results, lastTest];
+  } else {
+    [results, lastTest] = await jsonTesting.resultFromJson(info, json, model);
+    return [results, lastTest];
   }
 }
 
-async function webTestAll(target, model) {
-  const testWN = await testWegPage("testsWithNothing", target, model);
-  console.log("FINISHED TWN");
-  /* const testWD = await testWegPage("testsWithWcagDescription", url, model);
-  console.log("FINISHED TWD"); */
-  /* const testWU = await testWegPage("testsWithUnderstanding", url, model);
-  console.log("FINISHED TWU"); */
-  results = {
-    twn: testWN,
-    twd: testWN,
-    twu: testWN,
-  };
-
-  return results;
+async function webTest(target, model, continuing) {
+  results = {};
+  if (continuing) {
+    // Get the test from the db
+    [results, lastTest] = await WegTesting.continueWebTest(
+      target,
+      model,
+      continuing.upToNowTest,
+      continuing.haltedTest
+    );
+    return [results, lastTest];
+  } else {
+    [results, lastTest] = await WegTesting.testWegPage(target, model);
+    return [results, lastTest];
+  }
 }
 
 async function finishTest(code, mongoTestResults) {
+  mongoTestResults = JSON.stringify(mongoTestResults);
   await db.ResultJsons.find({ code: code }, function (err, doc) {
     if (err) {
       console.error(err);
@@ -299,6 +322,7 @@ async function finishTest(code, mongoTestResults) {
 }
 
 async function haltTest(code, mongoTestResults, lastTest) {
+  mongoTestResults = JSON.stringify(mongoTestResults);
   await db.ResultJsons.find({ code: code }, function (err, doc) {
     if (err) {
       console.error(err);
@@ -352,12 +376,12 @@ async function handleTestRequest(
       continuing
     );
   } else {
-    results = await webTestAll(testSubject, model);
+    [results, lastTest] = await webTest(testSubject, model, continuing);
   }
 
   if (lastTest) {
     if (user && !repeating && !continuing) {
-      await haltTest(code, results, la, lastTest);
+      await haltTest(code, results, lastTest);
     } else if (user && repeating) {
       await haltTest(repeating, results, lastTest);
     } else if (user && continuing) {
@@ -388,36 +412,44 @@ router.post("/", async (req, res) => {
 
   let code = null;
 
-  if (user && !repeating && !continuing) {
-    code = await getID(user);
-    await addNewTest(user, code, testType, testSubject, model, infProv);
-  } else if (user && repeating) {
-    await putOnRepeat(repeating);
-  } else if (user && continuing) {
-    await putOnContinue(continuing.code);
-  }
-
-  const result = await new Promise((resolve, reject) => {
-    // Add the request to the queue
-    requestQueue.push({
-      user,
-      testSubject,
-      model,
-      code,
-      testType,
-      repeating,
-      continuing,
-      infProv,
-      priority: parseInt(priority),
-      resolve,
-      reject,
-    });
-
-    // Process the queue if not already processing
-    if (requestQueue.length === 1) {
-      processQueue();
+  try {
+    if (user && model.api_key) {
+      await addNewOwnModel(user, model);
     }
-  });
+    if (user && !repeating && !continuing) {
+      code = await getID(user);
+      await addNewTest(user, code, testType, testSubject, model, infProv);
+    } else if (user && repeating) {
+      await putOnRepeat(repeating);
+    } else if (user && continuing) {
+      await putOnContinue(continuing.code);
+    }
+
+    const result = await new Promise((resolve, reject) => {
+      // Add the request to the queue
+      requestQueue.push({
+        user,
+        testSubject,
+        model,
+        code,
+        testType,
+        repeating,
+        continuing,
+        infProv,
+        priority: parseInt(priority),
+        resolve,
+        reject,
+      });
+
+      // Process the queue if not already processing
+      if (requestQueue.length === 1) {
+        processQueue();
+      }
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(400).send({ message: error.message });
+  }
 
   res.send(result); // Return the final result
 });
@@ -472,6 +504,42 @@ router.post("/deleteTest", async (req, res) => {
       res.status(200).send({ message: "Test deleted" });
     }
   });
+});
+
+alterTest = (testJson) => {
+  test = JSON.parse(testJson.test);
+  for (i in test) {
+    for (j in test[i]) {
+      if (test[i][j].result) {
+        console.log(test[i][j].result);
+      }
+    }
+  }
+  return JSON.stringify(test);
+};
+
+router.post("/alterTest", async (req, res) => {
+  testCode = req.body.code;
+  db.ResultJsons.find({ code: testCode }, function (err, doc) {
+    if (err) {
+      console.error(err);
+      res.status(400).send({ message: err });
+    } else {
+      result = doc[0];
+      newTest = alterTest(result);
+      db.ResultJsons.update(
+        { _id: result._id },
+        { $set: { test: newTest } },
+        function (err) {
+          if (err) {
+            console.error(err);
+            res.status(400).send({ message: err });
+          }
+        }
+      );
+    }
+  });
+  res.status(200).send({ message: "Test altered" });
 });
 
 module.exports = router;

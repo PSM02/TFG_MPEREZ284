@@ -11,11 +11,7 @@ function hWebJsonToCSV(jsonData) {
         test[item] = test[item].replace(/\n/g, " ");
       }
     }
-    if (test.hasOwnProperty("triggered_by")) {
-      csvRows.push(`${req},${test.answer},${test.time},${test.triggered_by},`);
-    } else {
-      csvRows.push(`${req},${test.answer},${test.time},`);
-    }
+    csvRows.push(`${req},${test.answer},${test.time},${test.triggered_by},`);
   });
 
   return csvRows.join("\n");

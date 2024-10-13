@@ -3,9 +3,9 @@ require("dotenv").config({ path: "backend/env/.env" });
 const { ChatGroq } = require("@langchain/groq");
 const { ChatPromptTemplate } = require("@langchain/core/prompts");
 
-setModelChain = async (m) => {
+setModelChain = async (m, api_key) => {
   model = new ChatGroq({
-    apiKey: process.env.GROQ_API_KEY,
+    apiKey: api_key || process.env.GROQ_API_KEY,
     model: m,
     temperature: 0.5,
   });
