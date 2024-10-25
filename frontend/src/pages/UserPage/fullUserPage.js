@@ -9,6 +9,7 @@ import ratesForTest from "../../methods/summarizeCSV";
 import JsonCsvSection from "../accesories/JsonCsvSection";
 import WebCsvSection from "../accesories/WebCsvSection";
 import OwnModelImput from "../accesories/OwnModelImput";
+import summarzedToCSV from "../../methods/summarizedCSVdataToCSV";
 import "./UserPage.css";
 
 export default function UserPage() {
@@ -22,7 +23,22 @@ export default function UserPage() {
     if (test.type === "json") {
       return (
         <>
-          <SummarizedCSV data={ratesForTest(csvs[index])} />
+          <div style={{ maxWidth: "500px" }}>
+            <a
+              className="download-link"
+              href={`data:text/csv;charset=utf-8,${summarzedToCSV(
+                ratesForTest(csvs[index])
+              )}`}
+              download={
+                "jsonTestResultsWith" +
+                test.informationProvided.join("_") +
+                ".csv"
+              }
+            >
+              Download Summarized CSV
+            </a>
+            <SummarizedCSV data={ratesForTest(csvs[index])} />
+          </div>
           <button
             className="showAdvancedButton"
             onClick={() =>
@@ -52,7 +68,7 @@ export default function UserPage() {
         <WebCsvSection
           title={"Test Results"}
           csvData={csvs[index]}
-          csvDownload={csv_downloads[index]}
+          csvDownload={csvs[index]}
           csv_download_name="webTestResults.csv"
         />
       );
@@ -146,36 +162,24 @@ export default function UserPage() {
         showList.push(false);
         showAdvancedList.push(false);
       }
-      if (data[i].type === "json") {
-        if (data[i].status === "finished" || data[i].status === "halted") {
-          let csv = jsonToCSV(data[i].test);
-          csv_downloads.push(csv);
-          Papa.parse(csv, {
-            complete: (result) => {
-              csvs.push(result.data);
-            },
-            header: true,
-            skipEmptyLines: true,
-          });
+      if (data[i].status === "finished" || data[i].status === "halted") {
+        let csv = "";
+        if (data[i].type === "json") {
+          csv = jsonToCSV(data[i].test);
         } else {
-          csvs.push([]);
-          csv_downloads.push([]);
+          csv = webJsonToCSV(data[i].test);
         }
+        csv_downloads.push(csv);
+        Papa.parse(csv, {
+          complete: (result) => {
+            csvs.push(result.data);
+          },
+          header: true,
+          skipEmptyLines: true,
+        });
       } else {
-        if (data[i].status === "finished" || data[i].status === "halted") {
-          let csv = webJsonToCSV(data[i].test);
-          csv_downloads.push(csv);
-          Papa.parse(csv, {
-            complete: (result) => {
-              csvs.push(result.data);
-            },
-            header: true,
-            skipEmptyLines: true,
-          });
-        } else {
-          csvs.push([]);
-          csv_downloads.push([]);
-        }
+        csvs.push([]);
+        csv_downloads.push([]);
       }
     }
     setShowAdvancedList(showAdvancedList);
@@ -203,8 +207,8 @@ export default function UserPage() {
 
   useEffect(() => {
     getTests();
-    const interval = setInterval(() => {
-      getTests();
+    const interval = setInterval(async () => {
+      await getTests();
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -230,19 +234,26 @@ export default function UserPage() {
                     setShowList([...showList]);
                   }}
                 >
-                  {test.status === "finished" &&
-                    " performed on " +
-                      formatDate(test.date) +
-                      " with " +
-                      test.model}
-                  {test.status === "started" && "Ongoing"}
-                  {test.status === "started" && <div className="loader" />}
-                  {test.status === "waiting" && "waiting to be processed"}
-                  {test.status === "waitingRepeat" && "waiting to be repeated"}
-                  {test.status === "repeating" && "being repeated"}
                   {(test.status === "repeating" ||
-                    test.status === "continuing") && <div className="loader" />}
-                  {test.status === "halted" && "halted"}
+                    test.status === "continuing" ||
+                    test.status === "started") && <div className="loader" />}
+                  {test.status === "started" && "Ongoing "}
+                  {test.status === "halted" && "Halted "}
+                  {test.status === "waiting" && "Waiting to be process "}
+                  {test.status === "waitingRepeat" && "Waiting to repeat "}
+                  {test.status === "repeating" && "Repeating "}
+                  {test.status === "finished" && "Finished "}
+                  {test.status === "continuing" && "Continuing "}
+                  {test.type.toUpperCase() +
+                    " test (providing " +
+                    test.informationProvided.join(", ") +
+                    ") with " +
+                    test.model.model +
+                    " (" +
+                    test.model.llm +
+                    ")"}
+                  {test.status === "finished" &&
+                    " performed on " + formatDate(test.date)}
                 </button>
                 {test.status === "finished" && (
                   <React.Fragment>

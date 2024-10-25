@@ -20,6 +20,7 @@ function WebImputPage() {
     { model: "llama-3.2-90b-text-preview", llm: "groq" },
   ]);
   const [testTarget, setTestTarget] = useState({});
+  const [currentTarget, setCurrentTarget] = useState(null);
   const [test, setTest] = useState(null);
   const [showJson, setShowJson] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +28,7 @@ function WebImputPage() {
   const [download_csv, setdownload_csv] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
   const [checkedItems, setCheckedItems] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
   const loged = localStorage.getItem("user");
 
   const handleSelect = (item) => {
@@ -35,10 +37,12 @@ function WebImputPage() {
 
   const handleURLChanged = (event) => {
     setTestTarget({ url: event.target.value });
+    setCurrentTarget("URL");
   };
 
   const handleHTMLChanged = (event) => {
     setTestTarget({ html: event.target.value });
+    setCurrentTarget("HTML");
   };
 
   const handleHTMLFileChange = (event) => {
@@ -52,6 +56,7 @@ function WebImputPage() {
       try {
         const html = e.target.result;
         setTestTarget({ html: html });
+        setCurrentTarget("uploaded HTML");
       } catch (error) {
         console.error("Error parsing HTML:", error);
       }
@@ -83,30 +88,56 @@ function WebImputPage() {
     });
   };
 
+  const allInformation = () => {
+    console.log(testTarget, selectedModel);
+    if (testTarget && selectedModel) {
+      return true;
+    } else {
+      let response = [];
+      if (Object.keys(testTarget).length === 0) {
+        response.push("Give a URL or HTML");
+      }
+      if (!selectedModel) {
+        response.push("select a model");
+      }
+      return response;
+    }
+  };
+
   const testWeb = async () => {
-    setIsLoading(true); // Start loading
-    // Send the JSON data to the server /service/results/json
-    fetch("http://localhost:3003/service/results/json", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        testSubject: testTarget,
-        model: selectedModel,
-        user: localStorage.getItem("user"),
-        all: false,
-        testType: "web",
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        manageData(data);
+    setErrorMessage(null);
+    let allInformationProvided = allInformation();
+    if (allInformationProvided === true) {
+      setIsLoading(true); // Start loading
+      // Send the JSON data to the server /service/results/json
+      fetch("http://localhost:3003/service/results/json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          testSubject: testTarget,
+          model: selectedModel,
+          user: localStorage.getItem("user"),
+          all: false,
+          testType: "web",
+        }),
       })
-      .catch((error) => {
-        console.error("Error sending JSON to server:", error);
-        setIsLoading(false); // Also stop loading on error
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          manageData(data);
+        })
+        .catch((error) => {
+          console.error("Error sending JSON to server:", error);
+          setIsLoading(false); // Also stop loading on error
+          setErrorMessage("Error occurred at server");
+        });
+    } else {
+      setErrorMessage(
+        "Please provide all the information required, you need to " +
+          allInformationProvided.join("and ")
+      );
+    }
   };
 
   const catchOwnModels = async () => {
@@ -153,15 +184,22 @@ function WebImputPage() {
         <div className="web-input">
           <h2>Give ONE of the following</h2>
           <h4 style={{ marginTop: "20px" }}>Paste an URL</h4>
-          <input onChange={handleURLChanged} />
+          <input onChange={handleURLChanged} onClick={handleURLChanged} />
           <h4 style={{ marginTop: "20px" }}>Paste a HTML</h4>
-          <input type="text" onChange={handleHTMLChanged} />
+          <input
+            type="text"
+            onChange={handleHTMLChanged}
+            onClick={handleHTMLChanged}
+          />
           <h4 style={{ marginTop: "20px" }}>Upload a HTML</h4>
           <input
             type="file"
             accept="application/html"
             onChange={handleHTMLFileChange}
           />
+          <h6 style={{ marginTop: "20px" }}>
+            Currently using: {currentTarget || "None"}
+          </h6>
         </div>
         {isLoading && <div className="loader" />}
         <div className="testOptions">
@@ -175,7 +213,8 @@ function WebImputPage() {
         </div>
       </div>
       <hr></hr>
-      <h6 className="left-text">
+      {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
+      <h6 className="left-text" style={{ marginTop: "20px" }}>
         If you want to test a model that is not in the list, please provide the
         llm name, model name and api_key:
       </h6>

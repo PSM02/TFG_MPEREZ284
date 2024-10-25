@@ -6,9 +6,9 @@ const router = express.Router();
 router.post("/getUserInfo", (req, res) => {
   db.users.findOne({ username: req.body.user }, function (err, doc) {
     if (doc) {
-      return res.status(200).send(doc);
+      res.status(200).send(doc);
     } else {
-      return res.status(400).send({ message: "User not found!" });
+      res.status(400).send({ message: "User not found!" });
     }
   });
 });
@@ -17,7 +17,7 @@ router.post("/addOwnModel", (req, res) => {
   user = req.body.user;
   model = req.body.model;
   if (model.model === "" || model.llm === "" || model.api_key === "") {
-    return res.status(400).send({ message: "Please fill all fields!" });
+    res.status(400).send({ message: "Please fill all fields!" });
   } else {
     db.users.find({ username: user }, function (err, doc) {
       if (err) {
@@ -42,7 +42,7 @@ router.post("/addOwnModel", (req, res) => {
         }
       }
     });
-    return res.status(200).send({ message: "Model and API-key submitted" });
+    res.status(200).send({ message: "Model and API-key submitted" });
   }
 });
 

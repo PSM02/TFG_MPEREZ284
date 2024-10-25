@@ -1,17 +1,19 @@
-version: "3.8"
-
 services:
   backend:
-    image: backend
+    build:
+      context: ./backend
+      dockerfile: dockerfile
     ports:
-      - "3001:3001"
+      - "3003:3003"
     depends_on:
       - mongo
     environment:
       - MONGODB_URI=mongodb://mongo:27017/TFG
 
   frontend:
-    image: frontend
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
     ports:
       - "3000:3000"
 
@@ -21,6 +23,16 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    command: mongoimport --db mydatabase --collection SC_info --drop --file ./backend/data/sc_info.json
+
+  chroma:
+    build:
+      context: ./chroma_python
+      dockerfile: dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
 
 volumes:
   mongo-data:

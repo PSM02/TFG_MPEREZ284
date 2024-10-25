@@ -7,6 +7,8 @@ export default function LogedBar() {
 
   const username = localStorage.getItem("user");
 
+  const atHome = window.location.pathname === "/";
+
   const logOut = () => {
     localStorage.clear();
     if (window.location.pathname === "/userPage") {
@@ -26,9 +28,11 @@ export default function LogedBar() {
         {username}
       </button>
       <button onClick={logOut}>Logout</button>
-      <button className="home-button" onClick={() => navigate("/")}>
-        Home
-      </button>
+      {!atHome && (
+        <button className="home-button" onClick={() => navigate("/")}>
+          Home
+        </button>
+      )}
     </div>
   );
 }

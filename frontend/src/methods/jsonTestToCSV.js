@@ -10,31 +10,25 @@ function hJsonToCSV(jsonData) {
   Object.entries(jsonData).forEach(([actrule, tests]) => {
     //tests is a json object of tests
     Object.entries(tests).forEach(([test, testObj]) => {
-      //testObj is a json object of test
-      if (testObj.hasOwnProperty("inapplicable_rule")) {
-        testObj.concreteHTML = `"${testObj.concreteHTML
+      //for each element in the test object
+      Object.entries(testObj).forEach(([key, value]) => {
+        // flaten the html string into on line
+        value.concreteHTML = `"${value.concreteHTML
           .replace(/\n/g, " ")
-          .replace(/"/g, '""')}"`;
-        csvRows.push(
-          `${test},${actrule},${testObj.inapplicable_rule},inapplicable,${testObj.expected},${testObj.time_applicable},,${testObj.concreteHTML},`
-        );
-      } else {
-        //for each element in the test object
-        Object.entries(testObj).forEach(([key, value]) => {
-          if (key !== "time_applicable") {
-            // flaten the html string into on line
-            value.concreteHTML = `"${value.concreteHTML
-              .replace(/\n/g, " ")
-              .replace(/"/g, '""')}"`;
-            csvRows.push(
-              `${test},${actrule},${key},${value.result},${value.expected},${testObj.time_applicable},${value.time_result},${value.concreteHTML},`
-            );
-          }
-        });
-      }
+          .replace(/"/g, '""')
+          .replace(/,/g, ";")}"`;
+        if (value.hasOwnProperty("time_result")) {
+          csvRows.push(
+            `${test},${actrule},${key},${value.result},${value.expected},${value.time_applicable},${value.time_result},${value.concreteHTML},`
+          );
+        } else {
+          csvRows.push(
+            `${test},${actrule},${key},${value.result},${value.expected},${value.time_applicable},,${value.concreteHTML},`
+          );
+        }
+      });
     });
   });
-
   return csvRows.join("\n");
 }
 

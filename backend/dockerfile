@@ -32,7 +32,7 @@ COPY --from=builder /app .
 RUN npm install --production
 
 # Expose port (change this if necessary)
-EXPOSE 3001
+EXPOSE 3003
 
 # Command to run the app
 CMD ["npm", "start"]

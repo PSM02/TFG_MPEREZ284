@@ -7,8 +7,6 @@ const WegTesting = require("../methods/testWegPage");
 
 // Priority queue array
 let requestQueue = [];
-let activeProcesses = 0;
-const maxConcurrent = 5; // Maximum number of concurrent operations
 
 const formatter = new Intl.DateTimeFormat("en-US", {
   timeZone: "Europe/Madrid", // specify Spain's time zone
@@ -145,7 +143,7 @@ async function continueTest(code) {
 async function processQueue() {
   if (requestQueue.length === 0) return;
 
-  while (activeProcesses < maxConcurrent && requestQueue.length > 0) {
+  while (requestQueue.length > 0) {
     requestQueue.sort((a, b) => a.priority - b.priority);
     let {
       user,
@@ -161,7 +159,6 @@ async function processQueue() {
     } = requestQueue.shift();
     try {
       // Increment the count of active processes
-      activeProcesses++;
       const result = await handleTestRequest(
         user,
         testSubject,
@@ -176,7 +173,6 @@ async function processQueue() {
     } catch (error) {
       reject(error); // Reject the promise if there's an error
     } finally {
-      activeProcesses--;
       if (requestQueue.length > 0) {
         processQueue(); // Process the next request in the queue
       }
@@ -205,52 +201,6 @@ async function startTest(code) {
 async function jsonTest(json, model, infProv, continuing) {
   results = {};
   info = "";
-  /* if (infProv.includes("All")) { */
-  try {
-    [results_wD, final_test_wD] = await jsonTesting.resultFromJson(
-      "Desc",
-      json,
-      model
-    );
-    results["wD"] = results_wD;
-    [results_wU, final_test_wU] = await jsonTesting.resultFromJson(
-      "Undr",
-      json,
-      model
-    );
-    results["wU"] = results_wU;
-    [results_wT, final_test_wT] = await jsonTesting.resultFromJson(
-      "Tech",
-      json,
-      model
-    );
-    results["wT"] = results_wT;
-    [results_wDU, final_test_wDU] = await jsonTesting.resultFromJson(
-      "DescUndr",
-      json,
-      model
-    );
-    results["wDU"] = results_wDU;
-    [results_wDT, final_test_wDT] = await jsonTesting.resultFromJson(
-      "DescTech",
-      json,
-      model
-    );
-    results["wDT"] = results_wDT;
-    [results_wUT, final_test_UT] = await jsonTesting.resultFromJson(
-      "UndrTech",
-      json,
-      model
-    );
-    results["wUT"] = results_wUT;
-    [results_wDUT, final_test_wDUT] = await jsonTesting.resultFromJson(
-      "DescUndrTech",
-      json,
-      model
-    );
-    results["wDUT"] = results_wDUT;
-    return results;
-  } catch (error) {}
   if (infProv.includes("WCAG Description")) {
     info += "Desc ";
   }
@@ -446,12 +396,11 @@ router.post("/", async (req, res) => {
         processQueue();
       }
     });
+    res.send(result); // Return the final result
   } catch (error) {
     console.error(error);
     res.status(400).send({ message: error.message });
   }
-
-  res.send(result); // Return the final result
 });
 
 removeDotsJson = (data) => {
@@ -505,18 +454,6 @@ router.post("/deleteTest", async (req, res) => {
     }
   });
 });
-
-alterTest = (testJson) => {
-  test = JSON.parse(testJson.test);
-  for (i in test) {
-    for (j in test[i]) {
-      if (test[i][j].result) {
-        console.log(test[i][j].result);
-      }
-    }
-  }
-  return JSON.stringify(test);
-};
 
 router.post("/alterTest", async (req, res) => {
   testCode = req.body.code;

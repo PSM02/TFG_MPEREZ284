@@ -2,20 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./JsonOption.css";
 import jsonToCSV from "../../methods/jsonTestToCSV";
 import Papa from "papaparse";
-import CsvDataTable from "./CsvTable";
 import DropDownList from "../accesories/DropDownList";
 import CheckBoxList from "../accesories/CheckBoxList";
 import UpBar from "../principal/bar/UpBar";
 import LogedBar from "../principal/bar/LogedBar";
 import SummarizedCSV from "../accesories/summarizedCSV";
 import ratesForTest from "../../methods/summarizeCSV";
+import JsonCsvSection from "../accesories/JsonCsvSection";
 
-const informationTypes = [
-  "WCAG Description",
-  "Understanding",
-  "Techniques",
-  "All",
-];
+const informationTypes = ["WCAG Description", "Understanding", "Techniques"];
 
 function JsonUploadPage() {
   const [models, setModels] = useState([
@@ -71,45 +66,6 @@ function JsonUploadPage() {
     setSelectedModel({ model: model, llm: llm, api_key: api_key });
   };
 
-  /*   const manageTestsWithNothing = (twn) => {
-    setTestsWithNothing(twn);
-    let csv_twn = jsonToCSV(twn);
-    setdownload_csv_twn(csv_twn);
-    Papa.parse(csv_twn, {
-      complete: (result) => {
-        setcsv_twn_data(result.data);
-      },
-      header: true,
-      skipEmptyLines: true,
-    });
-  };
-
-  const manageTestsWithWcagDescription = (twd) => {
-    setTestsWithWcagDescription(twd);
-    let csv_twd = jsonToCSV(twd);
-    setdownload_csv_twd(csv_twd);
-    Papa.parse(csv_twd, {
-      complete: (result) => {
-        setcsv_twd_data(result.data);
-      },
-      header: true,
-      skipEmptyLines: true,
-    });
-  };
-
-  const manageTestsWithUnderstanding = (twu) => {
-    setTestsWithUnderstanding(twu);
-    let csv_twu = jsonToCSV(twu);
-    setdownload_csv_twu(csv_twu);
-    Papa.parse(csv_twu, {
-      complete: (result) => {
-        setcsv_twu_data(result.data);
-      },
-      header: true,
-      skipEmptyLines: true,
-    });
-  }; */
-
   const manageData = (data) => {
     setIsLoading(false);
     setTest(data);
@@ -124,31 +80,55 @@ function JsonUploadPage() {
     });
   };
 
+  const allInformation = () => {
+    if (jsonData && selectedModel) {
+      return true;
+    } else {
+      let response = [];
+      if (!jsonData) {
+        response.push("upload a JSON file ");
+      }
+      if (!selectedModel) {
+        response.push("select a model");
+      }
+      return response;
+    }
+  };
+
   const testJson = async () => {
-    setIsLoading(true); // Start loading
-    // Send the JSON data to the server /service/results/json
-    fetch("http://localhost:3003/service/results/json", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        testSubject: jsonData,
-        model: selectedModel,
-        user: localStorage.getItem("user"),
-        testType: "json",
-        informationProvided: Object.keys(checkedItems),
-      }),
-    })
-      .then((response) => response.json())
-      .then(async (data) => {
-        await manageData(data);
+    setErrorMessage(null);
+    let allIbformationProvided = allInformation();
+    if (allIbformationProvided === true) {
+      setIsLoading(true); // Start loading
+      // Send the JSON data to the server /service/results/json
+      fetch("http://localhost:3003/service/results/json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          testSubject: jsonData,
+          model: selectedModel,
+          user: localStorage.getItem("user"),
+          testType: "json",
+          informationProvided: Object.keys(checkedItems),
+        }),
       })
-      .catch((error) => {
-        console.error("Error sending JSON to server:", error);
-        setIsLoading(false); // Also stop loading on error
-        setErrorMessage("Error occurred at server");
-      });
+        .then((response) => response.json())
+        .then(async (data) => {
+          await manageData(data);
+        })
+        .catch((error) => {
+          console.error("Error sending JSON to server:", error);
+          setIsLoading(false); // Also stop loading on error
+          setErrorMessage("Error occurred at server");
+        });
+    } else {
+      setErrorMessage(
+        "Please provide all the information required, you need to " +
+          allIbformationProvided.join("and ")
+      );
+    }
   };
 
   const catchOwnModels = async () => {
@@ -182,9 +162,10 @@ function JsonUploadPage() {
   };
 
   useEffect(() => {
-    setInterval(async () => {
+    const interval = setInterval(async () => {
       await catchOwnModels();
     }, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -253,17 +234,11 @@ function JsonUploadPage() {
           <pre>{JSON.stringify(test, null, 2)}</pre>
         </div>
       )}
-      {csv_data && <SummarizedCSV data={ratesForTest(csv_data)} />}
       {csv_data && (
-        <button onClick={() => setShowAdvanced(!showAdvanced)}>
-          Show Advanced
-        </button>
-      )}
-      {showAdvanced && csv_data && (
         <div className="table-container">
           <a
             className="download-link"
-            href={`data:text/csv;charset=utf-8,${download_csv}`}
+            href={`data:text/csv;charset=utf-8,${ratesForTest(csv_data)}`}
             download={
               "jsonTestResultsWith" +
               Object.keys(checkedItems).join("_").replace(" ", "") +
@@ -272,8 +247,24 @@ function JsonUploadPage() {
           >
             Download CSV
           </a>
-          <CsvDataTable data={csv_data} />
+          <SummarizedCSV data={ratesForTest(csv_data)} />
         </div>
+      )}
+      {csv_data && (
+        <button onClick={() => setShowAdvanced(!showAdvanced)}>
+          Show Advanced
+        </button>
+      )}
+      {csv_data && (
+        <JsonCsvSection
+          title="All"
+          csvData={csv_data}
+          csvDownload={download_csv}
+          show={showAdvanced}
+          csv_download_name={
+            "jsonTestResultsWith" + Object.keys(checkedItems).join("_") + ".csv"
+          }
+        />
       )}
     </div>
   );

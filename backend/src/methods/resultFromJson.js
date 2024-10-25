@@ -1,10 +1,11 @@
 const fs = require("fs");
 const LLM = require("./callLLM");
 const searchTechniques = require("./chromadb");
+//const db = require("../methods/mongodb");
 
 const htmlDir = "data/htmls/";
-const sc_info = require("../../data/SC_info.json");
-//const Tests = require("../../data/test/sampleTestJson.json");
+
+const sc_info = require("../../data/sc_info.json");
 
 informationProvided = (testType, info) => {
   returnInfo = "<HTML>\n" + info.html + "\n</HTML>\n";
@@ -18,24 +19,16 @@ informationProvided = (testType, info) => {
       present_understanding(info.ruleUnderstanding) +
       "</RULE_UNDERSTANDING>\n";
   }
-  if (testType.includes("Tech")) {
-    returnInfo +=
-      "<RULE_TECHNIQUES>\n" +
-      present_techniques(info.techniques) +
-      "</RULE_TECHNIQUES>\n";
-  }
   return returnInfo;
 };
 
 message1 = (testType, html, rule) => {
-  const { techniques, ...understanding } = sc_info[rule].understanding;
   conversationChainAplicable =
     "<INFORMATION PROVIDED>\n" +
     informationProvided(testType, {
       html: html,
       ruleDesc: sc_info[rule].description,
-      ruleUnderstanding: understanding,
-      techniques: techniques,
+      ruleUnderstanding: sc_info[rule].understanding,
     }) +
     "</INFORMATION PROVIDED>\n" +
     "<TASK>\n" +
@@ -60,14 +53,12 @@ message1 = (testType, html, rule) => {
 };
 
 message2 = (testType, html, rule) => {
-  const { techniques, ...understanding } = sc_info[rule].understanding;
   conversationChainResult =
     "<INFORMATION PROVIDED>\n" +
     informationProvided(testType, {
       html: html,
       ruleDesc: sc_info[rule].description,
-      ruleUnderstanding: understanding,
-      techniques: sc_info[rule].understanding.techniques,
+      ruleUnderstanding: sc_info[rule].understanding,
     }) +
     "</INFORMATION PROVIDED>\n" +
     "<TASK>\n" +
@@ -93,6 +84,7 @@ trimEdges = (str) => {
 };
 
 function manageResponse(jsonString) {
+  splited = false;
   fixed = jsonString.replace(/[\r\n\t]/g, (match) => {
     switch (match) {
       case "\r":
@@ -105,7 +97,12 @@ function manageResponse(jsonString) {
         return match;
     }
   });
-  result = fixed.split('"result":')[1].split(",")[0].replace(" ", "");
+  while (!splited) {
+    try {
+      result = fixed.split('"result":')[1].split(",")[0].replace(" ", "");
+      splited = true;
+    } catch (error) {}
+  }
   result = trimEdges(result);
   description = fixed.split('"description":')[1];
   description = description.substring(1, description.length - 1);
@@ -140,13 +137,20 @@ present_techniques = (techniques) => {
   return textTechniques;
 };
 
-messageApplicableForTechniques = (html, technique1, rule) => {
-  informationProvided;
+messageApplicableForTechniques = (html, technique1, rule, previousResult) => {
   conversationChainAplicable =
     "<INFORMATION PROVIDED>\n" +
     "<HTML>\n" +
     html +
     "</HTML>\n" +
+    "<PREVIOUS>\n" +
+    "<PREVIOUS RESULT>\n" +
+    previousResult.result +
+    "</PREVIOUS RESULT>\n" +
+    "<JUSTIFICATION>\n" +
+    previousResult.description +
+    "</JUSTIFICATION>\n" +
+    "</PREVIOUS>\n" +
     "<TECHNIQUE>\n" +
     technique1 +
     "</TECHNIQUE>\n" +
@@ -218,12 +222,20 @@ messageContinueApplicableForTechniques = (
   return conversationChainAplicable;
 };
 
-messageResultForTechniques = (html, technique1, rule) => {
+messageResultForTechniques = (html, technique1, rule, previousResult) => {
   conversationChainResult =
     "<INFORMATION PROVIDED>\n" +
     "<HTML>\n" +
     html +
     "</HTML>\n" +
+    "<PREVIOUS>\n" +
+    "<PREVIOUS RESULT>\n" +
+    previousResult.result +
+    "</PREVIOUS RESULT>\n" +
+    "<JUSTIFICATION>\n" +
+    previousResult.description +
+    "</JUSTIFICATION>\n" +
+    "</PREVIOUS>\n" +
     "<TECHNIQUE>\n" +
     technique1 +
     "</TECHNIQUE>\n" +
@@ -290,213 +302,88 @@ messageContinueResultForTechniques = (
   return conversationChainResult;
 };
 
-techniquesQ = async (whatFor, html, criteria, chain, llm) => {
+techniquesQ = async (
+  whatFor,
+  html,
+  criteria,
+  chain,
+  llm,
+  lastTechniquePos,
+  lastAnswer
+) => {
   techniques = await searchTechniques(criteria);
-  console.log(techniques);
-  prebiousTechnique = techniques[0];
-  message =
-    whatFor == "Applicable"
-      ? messageApplicableForTechniques(html, techniques[0], criteria)
-      : messageResultForTechniques(html, techniques[0], criteria);
-  result = await LLM.callLLM(message, chain, llm);
-  result = manageResponse(result);
-  console.log(
-    "Done with technique 1 of " +
-      techniques.length +
-      ", result: " +
-      result.result
-  );
-  for (let i = 1; i < techniques.length; i++) {
-    message =
-      whatFor == "Applicable"
-        ? messageContinueApplicableForTechniques(
-            html,
-            techniques[i],
-            result.result,
-            prebiousTechnique,
-            criteria
-          )
-        : messageContinueResultForTechniques(
-            html,
-            techniques[i],
-            result.result,
-            prebiousTechnique,
-            criteria
-          );
-    result = await LLM.callLLM(message, chain, llm);
-    result = manageResponse(result);
-    console.log(
-      "Done with technique " +
-        (i + 1) +
-        " of " +
-        techniques.length +
-        ", result: " +
-        result.result
-    );
-    prebiousTechnique = techniques[i];
-  }
-  return result;
-};
-
-resultFromJson3 = async (testType, testsJson, model) => {
-  chain = await LLM.initialize(model);
-  final = {};
-  testsJson = originalTests;
-  current_test = "";
-  allTests = testsJson.testcases.length;
-  cont = 1;
+  let result;
+  console.log("Starting techniques for " + criteria);
   try {
-    for (tc in testsJson.testcases) {
-      element = testsJson.testcases[tc];
-      if (final[element.ruleId] == undefined) {
-        final[element.ruleId] = {};
-      }
-      current_test = element.ruleId + "_" + element.testcaseId;
-      html = htmlDir + current_test + ".html";
-      html = fs.readFileSync(html, "utf8");
-      stop = false;
-      criterias = Object.keys(element.ruleAccessibilityRequirements);
-      for (i in criterias) {
-        key = criterias[i];
-        questionAplicable = message1(testType, html, key);
-        start_time_applicable = new Date().getTime();
-        aplicable = await LLM.callLLM(questionAplicable, chain);
-        if (aplicable.toLowerCase().includes("inapplicable")) {
-          stop = true;
-          end_time_applicable = new Date().getTime();
-          obj = {
-            result: "inapplicable",
-            concreteHTML: aplicable,
-            expected: element.expected,
-            time_applicable: end_time_applicable - start_time_applicable,
-            inaplicable_rule: key,
-          };
-          break;
-        }
-      }
-      end_time_applicable = new Date().getTime();
-      if (!stop) {
-        obj = {};
-        obj["time_applicable"] = end_time_applicable - start_time_applicable;
-        for (j in criterias) {
-          k = criterias[j];
-          question = message2(testType, html, k);
-          start_time_result = new Date().getTime();
-          result = await LLM.callLLM(question, chain);
-          end_time_result = new Date().getTime();
-          if (result.toLowerCase().includes("passed")) {
-            concreteResult = "passed";
-          } else {
-            concreteResult = "failed";
-          }
-          obj[k] = {
-            result: concreteResult,
-            concreteHTML: result,
-            expected: element.expected,
-            time_result: end_time_result - start_time_result,
-          };
-        }
-      }
-      final[element.ruleId][element.testcaseId] = obj;
-      console.log(testType + ": finished test " + cont + " of " + allTests);
-      cont++;
+    if (lastTechniquePos === 0) {
+      desc_und =
+        whatFor == "Applicable"
+          ? message1("Desc Undr", html, criteria)
+          : message2("Desc Undr", html, criteria);
+      result = await LLM.callLLM(desc_und, chain, llm);
+      result = manageResponse(result);
+      previousTechnique = techniques[0];
+      message =
+        whatFor == "Applicable"
+          ? messageApplicableForTechniques(
+              html,
+              techniques[0],
+              criteria,
+              result
+            )
+          : messageResultForTechniques(html, techniques[0], criteria, result);
+      result = await LLM.callLLM(message, chain, llm);
+      result = manageResponse(result);
+      console.log(
+        "Done with technique 1 of " +
+          techniques.length +
+          ", result: " +
+          result.result
+      );
+      lastTechniquePos++;
+    } else {
+      result = lastAnswer;
+      previousTechnique = techniques[lastTechniquePos - 1];
     }
+    for (let i = lastTechniquePos; i < techniques.length; i++) {
+      message =
+        whatFor == "Applicable"
+          ? messageContinueApplicableForTechniques(
+              html,
+              techniques[i],
+              result.result,
+              previousTechnique,
+              criteria
+            )
+          : messageContinueResultForTechniques(
+              html,
+              techniques[i],
+              result.result,
+              previousTechnique,
+              criteria
+            );
+      result = await LLM.callLLM(message, chain, llm);
+      result = manageResponse(result);
+      console.log(
+        "Done with technique " +
+          (i + 1) +
+          " of " +
+          techniques.length +
+          ", result: " +
+          result.result
+      );
+      previousTechnique = techniques[i];
+      lastTechniquePos++;
+    }
+    return [result, undefined];
   } catch (error) {
     console.log(error);
-    return [final, current_test];
+    return [result, lastTechniquePos];
   }
-  console.log("=====================================");
-  console.log("             TERMINADO");
-  console.log("=====================================");
-  return [final, undefined];
-};
-
-resultFromJson2 = async (testType, testsJson, model) => {
-  chain = await LLM.initialize(model);
-  final = {};
-  for (i in testsJson) {
-    actRule = testsJson[i];
-    tests = {};
-    for (tc in actRule) {
-      rules = Object.keys(actRule[tc].ruleAccessibilityRequirements);
-      html = htmlDir + actRule[tc].url + ".html";
-      html = fs.readFileSync(html, "utf8");
-      conversationChainAplicable = message1(testType, html, rules[0]);
-      start_time_applicable = new Date().getTime();
-      aplicable = await LLM.callLLM(conversationChainAplicable, chain);
-      conversationChainAplicable =
-        conversationChainAplicable + "AI:\n" + aplicable + "\n";
-      stop = false;
-      if (aplicable.toLowerCase().includes("inapplicable")) {
-        stop = true;
-        end_time_applicable = new Date().getTime();
-        aplicable = aplicable.substring(6);
-        obj = {
-          result: "inapplicable",
-          concreteHTML: aplicable,
-          expected: actRule[tc].expected,
-          time_applicable: end_time_applicable - start_time_applicable + "ms",
-          inaplicable_rule: rules[0],
-        };
-      } else {
-        k = 1;
-        while (k < rules.length) {
-          conversationChainAplicable =
-            conversationChainAplicable + continue1(testType, rules[k]);
-          aplicable = await LLM.callLLM(conversationChainAplicable, chain);
-          conversationChainAplicable =
-            conversationChainAplicable + "AI:\n" + aplicable + "\n";
-          if (aplicable.toLowerCase().includes("inapplicable")) {
-            stop = true;
-            end_time_applicable = new Date().getTime();
-            aplicable = aplicable.substring(6);
-            obj = {
-              result: "inapplicable",
-              concreteHTML: aplicable,
-              expected: actRule[tc].expected,
-              time_applicable:
-                end_time_applicable - start_time_applicable + "ms",
-              inaplicable_rule: rules[k],
-            };
-            break;
-          } else {
-            k++;
-          }
-        }
-        end_time_applicable = new Date().getTime();
-      }
-      if (!stop) {
-        obj = {};
-        obj["time_applicable"] =
-          end_time_applicable - start_time_applicable + "ms";
-        for (k in rules) {
-          question = message2(testType, html, rules[k]);
-          start_time_result = new Date().getTime();
-          result = await LLM.callLLM(question, chain);
-          end_time_result = new Date().getTime();
-          obj[rules[k]] = {
-            result: result.substring(0, 6),
-            concreteHTML: result.substring(6),
-            expected: actRule[tc].expected,
-            time_result: end_time_result - start_time_result + "ms",
-          };
-        }
-      }
-      n = "test" + tc;
-      tests[n] = obj;
-      console.log("finished test " + tc + " of " + Object.keys(actRule).length);
-    }
-    final[i] = tests;
-    console.log("finished rule " + i + " of " + Object.keys(testsJson).length);
-  }
-  console.log("=====================================");
-  console.log("             TERMINADO");
-  console.log("=====================================");
-  return final;
 };
 
 resultFromJson = async (testType, testsJson, model) => {
-  return await doTest(testType, testsJson, model, {}, 1);
+  return await doTest(testType, testsJson, model, {}, 0, 0, true, 0, undefined);
 };
 
 continueResultFromJson = async (
@@ -506,142 +393,188 @@ continueResultFromJson = async (
   results,
   lastTest
 ) => {
-  console.log(lastTest);
   testcaseIDs = testsJson.testcases.map(
     (tc) => tc.ruleId + "_" + tc.testcaseId
   );
-  let cont = testcaseIDs.indexOf(lastTest);
-  console.log("continuing from test " + cont);
+  let lastTestPos = testcaseIDs.indexOf(lastTest.lastTestID);
+  let lastCriteria = lastTest.lastCriteria;
   let final = results;
 
   console.log(
-    testsJson.testcases[cont].ruleId +
+    testsJson.testcases[lastTestPos].ruleId +
       "_" +
-      testsJson.testcases[cont].testcaseId
+      testsJson.testcases[lastTestPos].testcaseId
   );
 
-  return await doTest(testType, testsJson, model, final, cont);
+  return await doTest(
+    testType,
+    testsJson,
+    model,
+    final,
+    lastTestPos,
+    lastCriteria,
+    lastTest.testing_applicable,
+    lastTest.lastTechniquePos,
+    lastTest.lastAnswer
+  );
 };
 
-doTest = async (testType, testsJson, model, final, cont) => {
+doTest = async (
+  testType,
+  testsJson,
+  model,
+  final,
+  lastTestPos,
+  lastCriteria,
+  testing_applicable,
+  lastTechniquePos,
+  lastAnswer
+) => {
   let chain = await LLM.initialize(model);
-  let current_test = "";
   let allTests = testsJson.testcases.length;
-
-  maxRetries = 2;
-  retries = 0;
   let applicable;
   let result;
+  let current_test = "";
 
-  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-  while (cont <= allTests) {
+  while (lastTestPos <= allTests) {
     try {
-      for (let tc = cont - 1; tc < allTests; tc++) {
+      let stop;
+      for (let tc = lastTestPos; tc < allTests; tc++) {
         let element = testsJson.testcases[tc];
         if (!final[element.ruleId]) {
           final[element.ruleId] = {};
         }
-
+        if (!final[element.ruleId][element.testcaseId]) {
+          final[element.ruleId][element.testcaseId] = {};
+        }
         current_test = element.ruleId + "_" + element.testcaseId;
         let html = htmlDir + current_test + ".html";
-        html = fs.readFileSync(html, "utf8");
-        let stop = false;
+        html = await fs.readFileSync(html, "utf8");
         let criterias = Object.keys(element.ruleAccessibilityRequirements);
         let start_time_applicable;
-        for (let i in criterias) {
-          let key = criterias[i];
-          start_time_applicable = new Date().getTime();
-          if (testType.includes("Tech")) {
-            applicable = await techniquesQ(
-              "Applicable",
-              html,
-              key,
-              chain,
-              model.llm
-            );
-          } else {
-            let questionAplicable = message1(testType, html, key);
-            applicable = await LLM.callLLM(questionAplicable, chain, model.llm);
-            applicable = manageResponse(applicable);
-          }
-          //console.log(applicable.result);
-          if (applicable.result.toLowerCase() === "inapplicable") {
-            stop = true;
-            let end_time_applicable = new Date().getTime();
-            final[element.ruleId][element.testcaseId] = {
-              result: "inapplicable",
-              concreteHTML: applicable.description,
-              expected: element.expected,
-              time_applicable: end_time_applicable - start_time_applicable,
-              inapplicable_rule: key,
-            };
-            break;
-          }
-        }
+        let end_time_applicable;
+        let obj = {};
+        for (let crit = lastCriteria; crit < criterias.length; crit++) {
+          stop = false;
+          lastCriteria = crit;
+          let key = criterias[crit];
+          if (testing_applicable) {
+            start_time_applicable = new Date().getTime();
 
-        let end_time_applicable = new Date().getTime();
-
-        if (!stop) {
-          let obj = {};
-          obj["time_applicable"] = end_time_applicable - start_time_applicable;
-          for (let j in criterias) {
-            let k = criterias[j];
-            let start_time_result = new Date().getTime();
             if (testType.includes("Tech")) {
-              result = await techniquesQ("Result", html, k, chain, model.llm);
+              [applicable, lastTechniquePos] = await techniquesQ(
+                "Applicable",
+                html,
+                key,
+                chain,
+                model.llm,
+                lastTechniquePos,
+                lastAnswer
+              );
+              if (lastTechniquePos) {
+                lastAnswer = applicable;
+                throw new Error("Error in techniques");
+              }
             } else {
-              let question = message2(testType, html, k);
+              let questionAplicable = message1(testType, html, key);
+              applicable = await LLM.callLLM(
+                questionAplicable,
+                chain,
+                model.llm
+              );
+              applicable = manageResponse(applicable);
+            }
+
+            lastAnswer = undefined;
+            lastTechniquePos = 0;
+
+            if (applicable.result.toLowerCase() === "inapplicable") {
+              stop = true;
+              end_time_applicable = new Date().getTime();
+              obj[key] = {
+                result: "inapplicable",
+                concreteHTML: applicable.description,
+                expected: element.expected,
+                time_applicable: end_time_applicable - start_time_applicable,
+              };
+            }
+          }
+
+          if (!stop) {
+            end_time_applicable = new Date().getTime();
+            let time_applicable;
+            if (!final[element.ruleId][element.testcaseId][key]) {
+              time_applicable = end_time_applicable - start_time_applicable;
+              final[element.ruleId][element.testcaseId][key] = time_applicable;
+            } else {
+              time_applicable = final[element.ruleId][element.testcaseId][key];
+            }
+            testing_applicable = false;
+            let start_time_result = new Date().getTime();
+
+            if (testType.includes("Tech")) {
+              [result, lastTechniquePos] = await techniquesQ(
+                "Result",
+                html,
+                key,
+                chain,
+                model.llm,
+                lastTechniquePos,
+                lastAnswer
+              );
+              if (lastTechniquePos) {
+                lastAnswer = result;
+                throw new Error("Error in techniques");
+              }
+            } else {
+              let question = message2(testType, html, key);
               result = await LLM.callLLM(question, chain, model.llm);
               result = manageResponse(result);
             }
+
             let end_time_result = new Date().getTime();
             let concreteResult =
               result.result.toLowerCase() === "passed" ||
               result.result.toLowerCase() === "passes"
                 ? "passed"
                 : "failed";
-
-            obj[k] = {
+            obj[key] = {
               result: concreteResult,
               concreteHTML: result.description,
               expected: element.expected,
               time_result: end_time_result - start_time_result,
+              time_applicable: time_applicable,
             };
+            lastAnswer = undefined;
+            lastTechniquePos = 0;
           }
-          final[element.ruleId][element.testcaseId] = obj;
+          testing_applicable = true;
         }
-
-        console.log(testType + ": finished test " + cont + " of " + allTests);
-        cont++;
+        final[element.ruleId][element.testcaseId] = obj;
+        console.log(
+          testType + ": finished test " + lastTestPos + " of " + allTests
+        );
+        lastTestPos++;
+        lastCriteria = 0;
       }
 
-      break; // If all tests pass without error, exit the loop
+      break;
     } catch (error) {
       console.log("Error occurred in test: " + current_test);
       console.log(error);
-      console.log("Waiting 30 minutes before retrying...");
-      /* if (retries < maxRetries) {
-        retries++;
-        //wait 1 hour before retrying
-        await wait(40 * 60 * 1000);
-        console.log("Retrying test: " + current_test);
-        retrieTime = new Date();
-        console.log("At " + retrieTime);
-      } else {
-        console.log("Max retries reached. Exiting...");
-        return [final, current_test];
-      } */
-      if (error.message.includes("split")) {
-        console.log("Error in split, retrying...");
-      } else {
-        return [final, current_test];
-      }
+      lastTest = {
+        lastTestID: current_test,
+        lastCriteria: lastCriteria,
+        testing_applicable: testing_applicable,
+        lastTechniquePos: lastTechniquePos,
+        lastAnswer: lastAnswer,
+      };
+      return [final, lastTest];
     }
   }
 
   console.log("=====================================");
-  console.log("             TERMINADO");
+  console.log("             FINISHED");
   console.log("=====================================");
 
   return [final, undefined];

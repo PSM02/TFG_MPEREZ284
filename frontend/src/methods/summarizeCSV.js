@@ -7,7 +7,6 @@ function SC_WCAG_Pinciples(data) {
 }
 
 function calculateGuessRates(csvData) {
-  console.log(csvData);
   const data = { sc: {}, wcag: {}, principle: {} };
   const keys = { sc: [], wcag: [], principle: [] };
   for (const row of csvData) {
@@ -99,8 +98,9 @@ function ratesForTest(test) {
         Results:
           testData === undefined
             ? "N/A"
-            : (testData[key][key2].guesses / testData[key][key2].count) * 100 +
-              "%",
+            : Math.round(
+                (testData[key][key2].guesses / testData[key][key2].count) * 100
+              ) + "%",
       });
     }
   }

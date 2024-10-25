@@ -6,6 +6,7 @@ function OwnModelImput() {
     model: "",
     api_key: "",
   });
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleChange = (event) => {
     const key = event.target.name;
@@ -14,6 +15,7 @@ function OwnModelImput() {
   };
 
   const submitOwnModel = () => {
+    setErrorMessage(null);
     let user = localStorage.getItem("user");
     fetch("http://localhost:3003/api/user/addOwnModel", {
       method: "POST",
@@ -27,7 +29,7 @@ function OwnModelImput() {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert(data.message);
+        setErrorMessage(data.message);
         //clear inputs
         setSelectedModel({
           llm: "",
@@ -62,6 +64,7 @@ function OwnModelImput() {
         name="api_key"
         style={{ maxWidth: "300px", marginBottom: "20px" }}
       ></input>
+      {errorMessage && <h6 style={{ color: "red" }}>{errorMessage}</h6>}
       <button style={{ maxWidth: "300px" }} onClick={submitOwnModel}>
         Submit Model and Key
       </button>

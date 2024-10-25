@@ -1,0 +1,19 @@
+FROM python:3.9-slim
+
+# Copy the necessary files
+COPY chroma_populate.py chroma_endpoint.py /app/
+COPY requirements.txt /app/
+COPY data/sortedTechniques.json /app/data/sortedTechniques.json
+COPY start.sh /start.sh
+
+# Set the working directory
+WORKDIR /app
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Make the start script executable
+RUN chmod +x /start.sh
+
+# Set the entry point to the start script
+CMD ["/start.sh"]

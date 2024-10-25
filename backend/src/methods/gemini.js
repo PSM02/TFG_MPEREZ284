@@ -9,7 +9,6 @@ async function setModelChain(m, api_key) {
 
   const genAI = new GoogleGenerativeAI(api_key);
 
-  // Use async/await to handle the promise returned by getGenerativeModel
   const chain = await genAI.getGenerativeModel({ model: m });
 
   return chain;

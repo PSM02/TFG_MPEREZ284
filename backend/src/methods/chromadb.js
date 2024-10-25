@@ -15,7 +15,6 @@ async function chromaQuery(criteria) {
 
     const data = await response.json();
     if (response.ok) {
-      console.log("Correctly fetched");
       return data;
     } else {
       console.error("Error fetching data:", data);

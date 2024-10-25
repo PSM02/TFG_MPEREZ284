@@ -16,16 +16,6 @@
   gap: 0.3cm;
 }
 
-.table-container {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  overflow-x: auto; /* Allows table to scroll horizontally on small screens */
-  /* the download link is on top of the table */
-  flex-direction: column;
-  align-items: center;
-}
-
 /*make the text blue*/
 .testButton:hover {
   background-color: transparent;

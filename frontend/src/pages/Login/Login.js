@@ -7,6 +7,7 @@ function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,11 +23,13 @@ function Login() {
       body: JSON.stringify(jsonData),
     }).then((response) => {
       response.json().then((data) => {
-        if (data.message === "Login successful!") {
+        if (response.status === 200) {
           localStorage.setItem("user", username);
+          navigate("/");
         }
-        alert(data.message);
-        navigate("/");
+        if (response.status === 400) {
+          setError(data.message);
+        }
       });
     });
   };
@@ -50,6 +53,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <input type="submit" value="Login" />
       </form>
     </div>

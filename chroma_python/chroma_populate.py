@@ -4,10 +4,10 @@ import os
 
 cwd = os.getcwd()
 
-with open(cwd + '/chroma_python/data/sortedTechniques.json', 'r', encoding='utf-8') as f:
+with open(cwd + '/data/sortedTechniques.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-chroma_client = chromadb.PersistentClient(path="./chroma_python/db")
+chroma_client = chromadb.PersistentClient(path="./db")
 collection = chroma_client.get_or_create_collection(name="techniques_collection")
 
 def techniquesCollection():  
@@ -25,8 +25,7 @@ def techniquesCollection():
         documents.append(key)
         ids.append("doc"+str(i))
         i += 1
-    
-    
+     
     collection.upsert(
         documents=documents,
         ids=ids,
@@ -35,8 +34,3 @@ def techniquesCollection():
     print("Data inserted")
 
 techniquesCollection()
-
-""" def clearCollection():
-    chroma_client.delete_collection(name="techniques_collection")
-
-clearCollection() """

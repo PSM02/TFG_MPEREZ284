@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
-import Martin from "./pages/principal/Martin";
+import Main from "./pages/principal/Main";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import JsonOption from "./pages/json_option/fullJsonOption";
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Martin />} />
+        <Route path="/" element={<Main />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/jsonOp" element={<JsonOption />} />

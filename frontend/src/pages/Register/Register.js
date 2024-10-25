@@ -11,6 +11,7 @@ function Register() {
   const [dob, setDob] = useState("");
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
+  const [error, setError] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,9 +31,18 @@ function Register() {
       body: JSON.stringify(jsonData),
     }).then((response) => {
       response.json().then((data) => {
-        localStorage.setItem("user", username);
-        alert(data.message);
-        navigate("/");
+        if (response.status === 200) {
+          localStorage.setItem("user", username);
+          navigate("/");
+        }
+        if (response.status === 400) {
+          //see if it is an array or a string
+          if (Array.isArray(data.message)) {
+            setError(data.message.join(", "));
+          } else {
+            setError(data.message);
+          }
+        }
       });
     });
   };
@@ -88,6 +98,7 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <input type="submit" value="Register" />
       </form>
     </div>

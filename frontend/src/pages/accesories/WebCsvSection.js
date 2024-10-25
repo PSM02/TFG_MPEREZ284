@@ -10,7 +10,7 @@ const WebCsvSection = ({ title, csvData, csvDownload, csv_download_name }) => {
       <div className="table-container">
         <a
           className="download-link"
-          href={`data:text/csv;charset=utf-8,${csvDownload}`}
+          href={`data:text/csv;charset=utf-8,${csvData}`}
           download={csv_download_name}
         >
           Download CSV
