@@ -311,74 +311,84 @@ techniquesQ = async (
   lastTechniquePos,
   lastAnswer
 ) => {
-  techniques = await searchTechniques(criteria);
-  let result;
-  console.log("Starting techniques for " + criteria);
-  try {
-    if (lastTechniquePos === 0) {
-      desc_und =
-        whatFor == "Applicable"
-          ? message1("Desc Undr", html, criteria)
-          : message2("Desc Undr", html, criteria);
-      result = await LLM.callLLM(desc_und, chain, llm);
-      result = manageResponse(result);
-      previousTechnique = techniques[0];
-      message =
-        whatFor == "Applicable"
-          ? messageApplicableForTechniques(
-              html,
-              techniques[0],
-              criteria,
-              result
-            )
-          : messageResultForTechniques(html, techniques[0], criteria, result);
-      result = await LLM.callLLM(message, chain, llm);
-      result = manageResponse(result);
-      console.log(
-        "Done with technique 1 of " +
-          techniques.length +
-          ", result: " +
-          result.result
-      );
-      lastTechniquePos++;
-    } else {
-      result = lastAnswer;
-      previousTechnique = techniques[lastTechniquePos - 1];
+  if (criteria !== "wcag20:3.3.1") {
+    techniques = await searchTechniques(criteria);
+    let result;
+    console.log("Starting techniques for " + criteria);
+    try {
+      if (lastTechniquePos === 0) {
+        desc_und =
+          whatFor == "Applicable"
+            ? message1("Desc Undr", html, criteria)
+            : message2("Desc Undr", html, criteria);
+        result = await LLM.callLLM(desc_und, chain, llm);
+        result = manageResponse(result);
+        previousTechnique = techniques[0];
+        message =
+          whatFor == "Applicable"
+            ? messageApplicableForTechniques(
+                html,
+                techniques[0],
+                criteria,
+                result
+              )
+            : messageResultForTechniques(html, techniques[0], criteria, result);
+        result = await LLM.callLLM(message, chain, llm);
+        result = manageResponse(result);
+        console.log(
+          "Done with technique 1 of " +
+            techniques.length +
+            ", result: " +
+            result.result
+        );
+        lastTechniquePos++;
+      } else {
+        result = lastAnswer;
+        previousTechnique = techniques[lastTechniquePos - 1];
+      }
+      for (let i = lastTechniquePos; i < techniques.length; i++) {
+        message =
+          whatFor == "Applicable"
+            ? messageContinueApplicableForTechniques(
+                html,
+                techniques[i],
+                result.result,
+                previousTechnique,
+                criteria
+              )
+            : messageContinueResultForTechniques(
+                html,
+                techniques[i],
+                result.result,
+                previousTechnique,
+                criteria
+              );
+        result = await LLM.callLLM(message, chain, llm);
+        result = manageResponse(result);
+        console.log(
+          "Done with technique " +
+            (i + 1) +
+            " of " +
+            techniques.length +
+            ", result: " +
+            result.result
+        );
+        previousTechnique = techniques[i];
+        lastTechniquePos++;
+      }
+      return [result, undefined];
+    } catch (error) {
+      console.log(error);
+      return [result, lastTechniquePos];
     }
-    for (let i = lastTechniquePos; i < techniques.length; i++) {
-      message =
-        whatFor == "Applicable"
-          ? messageContinueApplicableForTechniques(
-              html,
-              techniques[i],
-              result.result,
-              previousTechnique,
-              criteria
-            )
-          : messageContinueResultForTechniques(
-              html,
-              techniques[i],
-              result.result,
-              previousTechnique,
-              criteria
-            );
-      result = await LLM.callLLM(message, chain, llm);
-      result = manageResponse(result);
-      console.log(
-        "Done with technique " +
-          (i + 1) +
-          " of " +
-          techniques.length +
-          ", result: " +
-          result.result
-      );
-      previousTechnique = techniques[i];
-      lastTechniquePos++;
-    }
+  } else {
+    desc_und =
+      whatFor == "Applicable"
+        ? message1("Desc Undr", html, criteria)
+        : message2("Desc Undr", html, criteria);
+    result = await LLM.callLLM(desc_und, chain, llm);
+    result = manageResponse(result);
     return [result, undefined];
-  } catch (error) {
-    console.log(error);
-    return [result, lastTechniquePos];
   }
 };
 
@@ -393,11 +403,6 @@ continueResultFromJson = async (
   results,
   lastTest
 ) => {
-  testcaseIDs = testsJson.testcases.map(
-    (tc) => tc.ruleId + "_" + tc.testcaseId
-  );
-  let lastTestPos = testcaseIDs.indexOf(lastTest.lastTestID);
-  let lastCriteria = lastTest.lastCriteria;
   let final = results;
 
   console.log(
@@ -411,8 +416,8 @@ continueResultFromJson = async (
     testsJson,
     model,
     final,
-    lastTestPos,
-    lastCriteria,
+    lastTest.lastTestPos,
+    lastTest.lastCriteria,
     lastTest.testing_applicable,
     lastTest.lastTechniquePos,
     lastTest.lastAnswer
@@ -563,7 +568,7 @@ doTest = async (
       console.log("Error occurred in test: " + current_test);
       console.log(error);
       lastTest = {
-        lastTestID: current_test,
+        lastTest: lastTestPos,
         lastCriteria: lastCriteria,
         testing_applicable: testing_applicable,
         lastTechniquePos: lastTechniquePos,
