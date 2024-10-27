@@ -107,6 +107,7 @@ function manageResponse(jsonString) {
   description = fixed.split('"description":')[1];
   description = description.substring(1, description.length - 1);
   description = trimEdges(description);
+  description.replace(`\"`, "");
   return { result: result, description: description };
 }
 
@@ -122,19 +123,6 @@ present_understanding = (understanding) => {
     understanding["test-rules"] +
     "\n</TEST RULES>\n"
   );
-};
-
-present_techniques = (techniques) => {
-  textTechniques = "";
-  for (i in techniques) {
-    tech = techniques[i];
-    techID = tech.split(":")[0];
-    //techText is the rest of the string after the first double point
-    techText = tech.split(":").slice(1).join("");
-    textTechniques +=
-      "<" + techID + ">\n" + techText + "\n" + "</" + techID + ">\n";
-  }
-  return textTechniques;
 };
 
 messageApplicableForTechniques = (html, technique1, rule, previousResult) => {
@@ -311,84 +299,76 @@ techniquesQ = async (
   lastTechniquePos,
   lastAnswer
 ) => {
-  if (criteria !== "wcag20:3.3.1") {
-    techniques = await searchTechniques(criteria);
-    let result;
-    console.log("Starting techniques for " + criteria);
-    try {
-      if (lastTechniquePos === 0) {
-        desc_und =
-          whatFor == "Applicable"
-            ? message1("Desc Undr", html, criteria)
-            : message2("Desc Undr", html, criteria);
-        result = await LLM.callLLM(desc_und, chain, llm);
-        result = manageResponse(result);
-        previousTechnique = techniques[0];
-        message =
-          whatFor == "Applicable"
-            ? messageApplicableForTechniques(
-                html,
-                techniques[0],
-                criteria,
-                result
-              )
-            : messageResultForTechniques(html, techniques[0], criteria, result);
-        result = await LLM.callLLM(message, chain, llm);
-        result = manageResponse(result);
-        console.log(
-          "Done with technique 1 of " +
-            techniques.length +
-            ", result: " +
-            result.result
-        );
-        lastTechniquePos++;
-      } else {
-        result = lastAnswer;
-        previousTechnique = techniques[lastTechniquePos - 1];
-      }
-      for (let i = lastTechniquePos; i < techniques.length; i++) {
-        message =
-          whatFor == "Applicable"
-            ? messageContinueApplicableForTechniques(
-                html,
-                techniques[i],
-                result.result,
-                previousTechnique,
-                criteria
-              )
-            : messageContinueResultForTechniques(
-                html,
-                techniques[i],
-                result.result,
-                previousTechnique,
-                criteria
-              );
-        result = await LLM.callLLM(message, chain, llm);
-        result = manageResponse(result);
-        console.log(
-          "Done with technique " +
-            (i + 1) +
-            " of " +
-            techniques.length +
-            ", result: " +
-            result.result
-        );
-        previousTechnique = techniques[i];
-        lastTechniquePos++;
-      }
-      return [result, undefined];
-    } catch (error) {
-      console.log(error);
-      return [result, lastTechniquePos];
+  techniques = await searchTechniques(criteria);
+  //for all techniques, replace \ with \\ to avoid errors
+  techniques = techniques.map((t) => t.replace(/\\/g, "").replace(/"/g, ""));
+  let result;
+  console.log("Starting techniques for " + criteria);
+  try {
+    if (lastTechniquePos === 0) {
+      desc_und =
+        whatFor == "Applicable"
+          ? message1("Desc Undr", html, criteria)
+          : message2("Desc Undr", html, criteria);
+      result = await LLM.callLLM(desc_und, chain, llm);
+      result = manageResponse(result);
+      previousTechnique = techniques[0];
+      message =
+        whatFor == "Applicable"
+          ? messageApplicableForTechniques(
+              html,
+              techniques[0],
+              criteria,
+              result
+            )
+          : messageResultForTechniques(html, techniques[0], criteria, result);
+      result = await LLM.callLLM(message, chain, llm);
+      result = manageResponse(result);
+      console.log(
+        "Done with technique 1 of " +
+          techniques.length +
+          ", result: " +
+          result.result
+      );
+      lastTechniquePos++;
+    } else {
+      result = lastAnswer;
+      previousTechnique = techniques[lastTechniquePos - 1];
     }
-  } else {
-    desc_und =
-      whatFor == "Applicable"
-        ? message1("Desc Undr", html, criteria)
-        : message2("Desc Undr", html, criteria);
-    result = await LLM.callLLM(desc_und, chain, llm);
-    result = manageResponse(result);
+    for (let i = lastTechniquePos; i < techniques.length; i++) {
+      message =
+        whatFor == "Applicable"
+          ? messageContinueApplicableForTechniques(
+              html,
+              techniques[i],
+              result.result,
+              previousTechnique,
+              criteria
+            )
+          : messageContinueResultForTechniques(
+              html,
+              techniques[i],
+              result.result,
+              previousTechnique,
+              criteria
+            );
+      result = await LLM.callLLM(message, chain, llm);
+      result = manageResponse(result);
+      console.log(
+        "Done with technique " +
+          (i + 1) +
+          " of " +
+          techniques.length +
+          ", result: " +
+          result.result
+      );
+      previousTechnique = techniques[i];
+      lastTechniquePos++;
+    }
     return [result, undefined];
+  } catch (error) {
+    console.log(error);
+    return [result, lastTechniquePos];
   }
 };
 
@@ -406,9 +386,9 @@ continueResultFromJson = async (
   let final = results;
 
   console.log(
-    testsJson.testcases[lastTestPos].ruleId +
+    testsJson.testcases[lastTest.lastTest].ruleId +
       "_" +
-      testsJson.testcases[lastTestPos].testcaseId
+      testsJson.testcases[lastTest.lastTest].testcaseId
   );
 
   return await doTest(
@@ -416,7 +396,7 @@ continueResultFromJson = async (
     testsJson,
     model,
     final,
-    lastTest.lastTestPos,
+    lastTest.lastTest,
     lastTest.lastCriteria,
     lastTest.testing_applicable,
     lastTest.lastTechniquePos,
