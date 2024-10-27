@@ -1,5 +1,7 @@
 Aplikazioaren instalazio eta martxan jartzeko gida
 
+    Lehendabizi aukeratu version2.0 proiektuaren bertsioa
+
     Docker bidez:
 
         1. Irekita izan docker desktop, instalatuta ez baduzu hemendik descargatu: 
