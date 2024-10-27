@@ -415,7 +415,6 @@ doWebTest = async (
   while (cont < criterias.length) {
     try {
       rule = criterias[cont];
-      question = webMessage1(html, rule, sc_info[rule]);
       start_time_result = new Date().getTime();
       if (testing_applicable) {
         [applicable, lastTechniquePos] = await webTechniquesQ(

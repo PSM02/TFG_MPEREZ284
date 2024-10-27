@@ -102,6 +102,9 @@ export default function UserPage() {
   };
 
   const continueTest = async (test, index) => {
+    const updatedTests = [...tests];
+    updatedTests[index].status = "continuing";
+    setTests(updatedTests);
     fetch("http://localhost:3003/service/results/json/", {
       method: "POST",
       headers: {
@@ -288,7 +291,7 @@ export default function UserPage() {
                     <button
                       className="testButton"
                       onClick={(e) => {
-                        continueTest(test);
+                        continueTest(test, index);
                       }}
                     >
                       continue

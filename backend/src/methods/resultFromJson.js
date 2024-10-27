@@ -1,11 +1,19 @@
 const fs = require("fs");
 const LLM = require("./callLLM");
 const searchTechniques = require("./chromadb");
-//const db = require("../methods/mongodb");
+const db = require("../methods/mongodb");
 
 const htmlDir = "data/htmls/";
 
-const sc_info = require("../../data/sc_info.json");
+//const sc_info = require("../../data/sc_info.json");
+db.SC_info.findOne({}, (err, res) => {
+  if (err) {
+    console.log(err);
+  } else {
+    sc_info = res;
+    console.log("SC info loaded");
+  }
+});
 
 informationProvided = (testType, info) => {
   returnInfo = "<HTML>\n" + info.html + "\n</HTML>\n";
