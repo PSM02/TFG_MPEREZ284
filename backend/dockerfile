@@ -31,6 +31,8 @@ COPY --from=builder /app .
 # Install production dependencies
 RUN npm install --production
 
+RUN node src/methods/populateMongo.js
+
 # Expose port (change this if necessary)
 EXPOSE 3003
 
