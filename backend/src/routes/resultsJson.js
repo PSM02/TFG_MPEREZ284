@@ -330,12 +330,31 @@ async function handleTestRequest(
   }
 
   if (lastTest) {
-    if (user && !repeating && !continuing) {
-      await haltTest(code, results, lastTest);
-    } else if (user && repeating) {
-      await haltTest(repeating, results, lastTest);
+    if (user && repeating) {
+      code = repeating;
     } else if (user && continuing) {
-      await haltTest(continuing.code, results, lastTest);
+      code = continuing.code;
+    }
+    haltTest(code, results, lastTest);
+    console.log("Test halted");
+    while (lastTest) {
+      //wait 24 hours
+      console.log("Waiting 24 hours to continue the test");
+      await new Promise((resolve) => setTimeout(resolve, 86400000));
+      //continue the test
+      await continueTest(code);
+      console.log("Continuing the test with code: " + code);
+      if (testType === "json") {
+        [results, lastTest] = await jsonTest(
+          testSubject,
+          model,
+          infProv,
+          continuing
+        );
+      } else {
+        [results, lastTest] = await webTest(testSubject, model, continuing);
+      }
+      haltTest(code, results, lastTest);
     }
   } else {
     if (user && !repeating && !continuing) {

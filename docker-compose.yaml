@@ -23,7 +23,6 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
-    command: mongoimport --db mydatabase --collection SC_info --drop --file ./backend/data/sc_info.json
 
   chroma:
     build:

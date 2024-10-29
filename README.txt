@@ -9,7 +9,7 @@ Aplikazioaren instalazio eta martxan jartzeko gida
             - Windows : https://docs.docker.com/desktop/install/windows-install/
             - Mac : https://docs.docker.com/desktop/install/mac-install/
 
-        2. Proiektuaren erroan egonda hurrengo comandoa exekutatu terminalaren bidez: docker-compose up --build
+        2. Proiektuaren erroan egonda hurrengo comandoa exekutatu terminalaren bidez: docker compose up --build
 
     Bestela:
 

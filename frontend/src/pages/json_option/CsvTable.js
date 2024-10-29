@@ -8,7 +8,10 @@ const CsvDataTable = ({ data }) => {
   // Filter out the __parsed_extra key and html from the headers
   const headers = Object.keys(data[0]).filter(
     (header) =>
-      header !== "__parsed_extra" && header !== "Html" && header !== "TestCase"
+      header !== "__parsed_extra" &&
+      header !== "Html" &&
+      header !== "TestCase" &&
+      header !== "Used_Prompt"
   );
 
   const rowTestInfo = {};

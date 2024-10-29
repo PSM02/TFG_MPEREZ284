@@ -2,6 +2,8 @@ require("dotenv").config({ path: "env/.env" });
 
 const mongojs = require("mongojs");
 
+const sc_info = require("../../data/sc_info.json");
+
 const db = mongojs(process.env.MONGODB_URI, [
   "users",
   "ResultJsons",
@@ -11,10 +13,6 @@ const db = mongojs(process.env.MONGODB_URI, [
 // Add error handling for the database connection
 db.on("error", function (err) {
   console.error("Database connection error:", err);
-});
-
-db.on("connect", function () {
-  console.log("Database connected successfully");
 });
 
 module.exports = db;

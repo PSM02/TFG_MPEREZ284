@@ -2,18 +2,22 @@ const fs = require("fs");
 const LLM = require("./callLLM");
 const searchTechniques = require("./chromadb");
 const db = require("../methods/mongodb");
+const { get } = require("http");
 
 const htmlDir = "data/htmls/";
 
 //const sc_info = require("../../data/sc_info.json");
-db.SC_info.findOne({}, (err, res) => {
-  if (err) {
-    console.log(err);
-  } else {
-    sc_info = res;
-    console.log("SC info loaded");
-  }
-});
+getSC_info = async () => {
+  await db.SC_info.findOne({}, (err, res) => {
+    if (err) {
+      console.log(err);
+    } else {
+      sc_info = res;
+    }
+  });
+};
+
+getSC_info();
 
 informationProvided = (testType, info) => {
   returnInfo = "<HTML>\n" + info.html + "\n</HTML>\n";
@@ -453,7 +457,7 @@ doTest = async (
           let key = criterias[crit];
           if (testing_applicable) {
             start_time_applicable = new Date().getTime();
-
+            let questionAplicable;
             if (testType.includes("Tech")) {
               [applicable, lastTechniquePos] = await techniquesQ(
                 "Applicable",
@@ -489,6 +493,7 @@ doTest = async (
                 concreteHTML: applicable.description,
                 expected: element.expected,
                 time_applicable: end_time_applicable - start_time_applicable,
+                prompt: questionAplicable,
               };
             }
           }
@@ -504,7 +509,7 @@ doTest = async (
             }
             testing_applicable = false;
             let start_time_result = new Date().getTime();
-
+            let question;
             if (testType.includes("Tech")) {
               [result, lastTechniquePos] = await techniquesQ(
                 "Result",
@@ -537,6 +542,7 @@ doTest = async (
               expected: element.expected,
               time_result: end_time_result - start_time_result,
               time_applicable: time_applicable,
+              prompt: question,
             };
             lastAnswer = undefined;
             lastTechniquePos = 0;
@@ -549,6 +555,7 @@ doTest = async (
         );
         lastTestPos++;
         lastCriteria = 0;
+        throw "cuota error";
       }
 
       break;
