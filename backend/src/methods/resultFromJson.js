@@ -555,7 +555,6 @@ doTest = async (
         );
         lastTestPos++;
         lastCriteria = 0;
-        throw "cuota error";
       }
 
       break;
